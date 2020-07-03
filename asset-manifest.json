@@ -1,23 +1,22 @@
 {
   "files": {
-    "main.css": "/bibleApp/static/css/main.5f361e03.chunk.css",
-    "main.js": "/bibleApp/static/js/main.f22b100f.chunk.js",
-    "main.js.map": "/bibleApp/static/js/main.f22b100f.chunk.js.map",
+    "main.css": "/bibleApp/static/css/main.98fef1d4.chunk.css",
+    "main.js": "/bibleApp/static/js/main.91aeda6b.chunk.js",
+    "main.js.map": "/bibleApp/static/js/main.91aeda6b.chunk.js.map",
     "runtime-main.js": "/bibleApp/static/js/runtime-main.211d6da4.js",
     "runtime-main.js.map": "/bibleApp/static/js/runtime-main.211d6da4.js.map",
-    "static/js/2.3225c90d.chunk.js": "/bibleApp/static/js/2.3225c90d.chunk.js",
-    "static/js/2.3225c90d.chunk.js.map": "/bibleApp/static/js/2.3225c90d.chunk.js.map",
+    "static/js/2.bf71761e.chunk.js": "/bibleApp/static/js/2.bf71761e.chunk.js",
+    "static/js/2.bf71761e.chunk.js.map": "/bibleApp/static/js/2.bf71761e.chunk.js.map",
     "index.html": "/bibleApp/index.html",
-    "precache-manifest.92f9d54343dc12308187ac074ed31463.js": "/bibleApp/precache-manifest.92f9d54343dc12308187ac074ed31463.js",
+    "precache-manifest.3aaff294deb56b3bd342c12bad75d7ed.js": "/bibleApp/precache-manifest.3aaff294deb56b3bd342c12bad75d7ed.js",
     "service-worker.js": "/bibleApp/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/bibleApp/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.3225c90d.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.3225c90d.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/bibleApp/static/media/logo.5d5d9eef.svg"
+    "static/css/main.98fef1d4.chunk.css.map": "/bibleApp/static/css/main.98fef1d4.chunk.css.map",
+    "static/js/2.bf71761e.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.bf71761e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.211d6da4.js",
-    "static/js/2.3225c90d.chunk.js",
-    "static/css/main.5f361e03.chunk.css",
-    "static/js/main.f22b100f.chunk.js"
+    "static/js/2.bf71761e.chunk.js",
+    "static/css/main.98fef1d4.chunk.css",
+    "static/js/main.91aeda6b.chunk.js"
   ]
 }
