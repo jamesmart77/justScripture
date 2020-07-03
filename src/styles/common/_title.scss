@@ -1,0 +1,11 @@
+@import '../appColors';
+
+.title-container {
+    background-color: $primarySlate;
+    color: $white;
+    padding: 1rem;
+
+    .text {
+        margin: 0 !important;
+    }
+}

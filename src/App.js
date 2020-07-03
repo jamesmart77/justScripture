@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import withSizes from 'react-sizes'
+import MobileView from './mobile/MobileView';
+import DesktopView from './desktop/DesktopView';
+import Footer from './common/Footer';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+
+    const { isMobile } = this.props;
+    return (
+      <div className="app-container">
+        <main>
+          {!isMobile &&
+            <DesktopView />
+          }
+
+          {isMobile && 
+            <MobileView />
+          }
+        </main>
+        <Footer />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapSizesToProps = ({ width }) => ({
+  isMobile: width < 600,
+})
+
+export default withSizes(mapSizesToProps)(App);

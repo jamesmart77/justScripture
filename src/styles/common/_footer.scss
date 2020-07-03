@@ -1,0 +1,13 @@
+@import '../appColors';
+
+.footer-container {
+    background-color: $grey4;
+    color: $secondarySlate;
+    padding: 1rem;
+    text-align: center;
+
+    a {
+        color: $primaryTeal;
+        font-weight: 400;
+    }
+}

@@ -1,0 +1,19 @@
+.desktop-container {
+    display: flex;
+    flex: 1 0 auto;
+
+    .row-wrapper {
+        display: flex;
+        flex: 1 0 auto;
+        margin: 0 !important;
+    }
+
+    .col-wrapper {
+        flex: 1 0 auto;
+        padding: 0 !important;
+    }
+
+    .search-col {
+        background-color: $grey5;
+    }
+}
