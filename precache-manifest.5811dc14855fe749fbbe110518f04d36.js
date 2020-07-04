@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "60bbb12c939ef394375dcad9d8ffa48d",
+    "revision": "c008a37bd49e2b525770e80ee1b1ac93",
     "url": "/bibleApp/index.html"
   },
   {
