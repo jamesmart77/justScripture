@@ -7,17 +7,15 @@ import Footer from './common/Footer';
 class App extends Component {
   render() {
 
-    const { isMobile } = this.props;
+    const { isDesktop } = this.props;
     return (
       <div className="app-container">
         <main>
-          {!isMobile &&
+          {isDesktop ? (
             <DesktopView />
-          }
-
-          {isMobile && 
+          ) : (
             <MobileView />
-          }
+          )}
         </main>
         <Footer />
       </div>
@@ -26,7 +24,7 @@ class App extends Component {
 }
 
 const mapSizesToProps = ({ width }) => ({
-  isMobile: width < 600,
+  isDesktop: width >= 900,
 })
 
 export default withSizes(mapSizesToProps)(App);

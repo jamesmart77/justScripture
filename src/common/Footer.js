@@ -4,7 +4,7 @@ function Footer () {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer class="footer-container">
+    <footer className="footer-container">
         &copy; {currentYear} 
         {' '}
         <a 

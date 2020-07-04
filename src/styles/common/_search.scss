@@ -1,0 +1,20 @@
+@import '../appColors';
+
+.search-container {
+    .btn-wrapper {
+        padding: 0 1.5rem;
+        text-align: right;
+
+        .search-btn {
+            background-color: $secondarySalmon;
+            color: $white;
+            width: 100%;
+
+            .icon {
+                margin-right: 0.5rem;
+                position: relative;
+                top: 0.25rem;
+            }
+        }
+    }
+}

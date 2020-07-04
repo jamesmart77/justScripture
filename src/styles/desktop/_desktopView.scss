@@ -15,5 +15,14 @@
 
     .search-col {
         background-color: $grey5;
+
+        .collapsible {
+            margin: 0 !important;
+
+            &-body {
+                background-color: $white !important;
+                padding: 0.75rem !important;
+            }
+        }
     }
 }
