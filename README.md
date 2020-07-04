@@ -8,18 +8,18 @@ This is a fun little app to help people search for passages, verses, and keyword
 
 **Desktop View**
 <p align="center">
-    <img src="https://raw.github.com/jamesmart77/bible-app/master/media/desktop.png" alt="preview" />
+    <img src="https://raw.github.com/jamesmart77/bibleApp/master/media/desktop.png" alt="preview" />
 </p>
 
 **Mobile View With Search Expanded**
 <p align="center">
-    <img src="https://raw.github.com/jamesmart77/bible-app/master/media/mobileSearchExpanded.png" alt="preview" />
+    <img src="https://raw.github.com/jamesmart77/bibleApp/master/media/mobileSearchExpanded.png" alt="preview" />
 </p>
 
 
 **Mobile View With Search Collapsed**
 <p align="center">
-    <img src="https://raw.github.com/jamesmart77/bible-app/master/media/mobileSearchCollapsed.png" alt="preview" />
+    <img src="https://raw.github.com/jamesmart77/bibleApp/master/media/mobileSearchCollapsed.png" alt="preview" />
 </p>
 
 
