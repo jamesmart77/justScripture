@@ -3,16 +3,30 @@ import { Row, Col, Collapsible, CollapsibleItem, Icon } from 'react-materialize'
 import Title from '../common/Title';
 import Search from '../common/Search';
 import { searchTypes } from '../helpers/constants';
+import { getPassageResults, getKeywordResults } from '../searchUtil';
 
 class DesktopView extends Component {
   state = {
     isPassageExpanded: true,
     isKeywordExpanded: false,
+    keywordSearchResults: [],
+    passageSearchResults: [],
   }
 
-  onSearch = (value, type) => {
-    console.log("Value: ", value);
-    console.log("Type: ", type);
+  onSearch = async (text, type) => {
+    console.log("Text: ", text)
+    const cleanedValue = text.trim().replace(' ', '+');
+    console.log("cleanedValue: ", cleanedValue)
+
+    if (type === searchTypes.keyword) {
+      const data = await getKeywordResults(cleanedValue);
+      await this.setState({keywordSearchResults: data.results});
+    } else {
+      const data = await getPassageResults(cleanedValue);
+      await this.setState({passageSearchResults: data.passages});
+    }
+    
+    console.log("State: ", this.state);
   }
 
 

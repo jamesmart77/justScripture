@@ -9,8 +9,9 @@ function Search (props) {
 
     const handleSearch = (e) => {
         e.preventDefault();
+        const cleanedText = text.trim();
+        onSearch(cleanedText, type);
         setText('');
-        onSearch(text, type);
     }
 
     return (
