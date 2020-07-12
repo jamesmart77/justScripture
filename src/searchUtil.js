@@ -1,4 +1,5 @@
 import axios from 'axios';
+import ReactHtmlParser from 'react-html-parser';
 
 const config = {
     proxy: false,
@@ -9,7 +10,8 @@ const config = {
 };
 
 const getPassageResults = async (query) => {
-    const { data }  = await axios.get(`https://api.esv.org/v3/passage/text/?q=${query}`, config);
+    const { data }  = await axios.get(`https://api.esv.org/v3/passage/html/?q=${query}`, config);
+    data.passages = ReactHtmlParser(data.passages[0]);
     return data;
 }
 

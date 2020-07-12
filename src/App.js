@@ -3,6 +3,7 @@ import withSizes from 'react-sizes'
 import MobileView from './mobile/MobileView';
 import DesktopView from './desktop/DesktopView';
 import Footer from './common/Footer';
+import { ToastContainer } from 'react-toastify';
 
 class App extends Component {
   render() {
@@ -18,6 +19,8 @@ class App extends Component {
           )}
         </main>
         <Footer />
+
+        <ToastContainer autoClose={false} /> 
       </div>
     );
   }

@@ -1,7 +1,6 @@
 .desktop-container {
-    display: flex;
-    flex: 1 0 auto;
-
+    display: contents;
+    
     .row-wrapper {
         display: flex;
         flex: 1 0 auto;
@@ -23,6 +22,20 @@
                 background-color: $white !important;
                 padding: 0.75rem !important;
             }
+        }
+    }
+
+    .display-col {
+        background-color: $white;
+        display: flex;
+
+        .loading-spinner, .pre-search-msg {
+            margin: auto;
+        }
+
+        .pre-search-msg {
+            color: $grey4;
+            text-align: center;
         }
     }
 }
