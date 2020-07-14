@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/bibleApp/static/css/main.c6dc9b2c.chunk.css",
-    "main.js": "/bibleApp/static/js/main.6ca28456.chunk.js",
-    "main.js.map": "/bibleApp/static/js/main.6ca28456.chunk.js.map",
+    "main.js": "/bibleApp/static/js/main.63900d36.chunk.js",
+    "main.js.map": "/bibleApp/static/js/main.63900d36.chunk.js.map",
     "runtime-main.js": "/bibleApp/static/js/runtime-main.211d6da4.js",
     "runtime-main.js.map": "/bibleApp/static/js/runtime-main.211d6da4.js.map",
     "static/js/2.63445870.chunk.js": "/bibleApp/static/js/2.63445870.chunk.js",
     "static/js/2.63445870.chunk.js.map": "/bibleApp/static/js/2.63445870.chunk.js.map",
     "index.html": "/bibleApp/index.html",
-    "precache-manifest.7bc00fc61d6882a8f71c1dd36c196992.js": "/bibleApp/precache-manifest.7bc00fc61d6882a8f71c1dd36c196992.js",
+    "precache-manifest.8dc2e3b710f7c830095f60ef5fc7d878.js": "/bibleApp/precache-manifest.8dc2e3b710f7c830095f60ef5fc7d878.js",
     "service-worker.js": "/bibleApp/service-worker.js",
     "static/css/main.c6dc9b2c.chunk.css.map": "/bibleApp/static/css/main.c6dc9b2c.chunk.css.map",
     "static/js/2.63445870.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.63445870.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.211d6da4.js",
     "static/js/2.63445870.chunk.js",
     "static/css/main.c6dc9b2c.chunk.css",
-    "static/js/main.6ca28456.chunk.js"
+    "static/js/main.63900d36.chunk.js"
   ]
 }
