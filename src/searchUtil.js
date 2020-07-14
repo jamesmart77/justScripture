@@ -5,7 +5,7 @@ const config = {
     proxy: false,
     headers: {
         'content-type': 'application/json',
-        'Authorization': 'Token ',
+        'Authorization': 'Token',
     },
 };
 

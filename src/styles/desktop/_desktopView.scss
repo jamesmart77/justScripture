@@ -1,6 +1,6 @@
 .desktop-container {
     display: contents;
-    
+
     .row-wrapper {
         display: flex;
         flex: 1 0 auto;
@@ -36,6 +36,27 @@
         .pre-search-msg {
             color: $grey4;
             text-align: center;
+        }
+
+        .passage-text {
+            margin: 1rem;
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+
+            .audio {
+                float: right;
+                font-size: 1rem;
+            }
         }
     }
 }
