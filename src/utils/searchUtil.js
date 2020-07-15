@@ -5,7 +5,7 @@ const config = {
     proxy: false,
     headers: {
         'content-type': 'application/json',
-        'Authorization': 'Token',
+        'Authorization': 'Token ',
     },
 };
 
@@ -16,9 +16,7 @@ const getPassageResults = async (query) => {
 }
 
 const getKeywordResults = async (query) => {
-    console.log("Searching...: ", query)
     const { data } = await axios.get(`https://api.esv.org/v3/passage/search/?q=${query}`, config);
-    console.log("Data: ", data)
     return data;
 }
 

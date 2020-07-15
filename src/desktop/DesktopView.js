@@ -3,7 +3,7 @@ import { Row, Col, Collapsible, CollapsibleItem, Icon, Preloader } from 'react-m
 import Title from '../common/Title';
 import Search from '../common/Search';
 import { searchTypes } from '../helpers/constants';
-import { getPassageResults, getKeywordResults } from '../searchUtil';
+import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
 import { Fade } from 'react-reveal';
 
@@ -38,6 +38,14 @@ class DesktopView extends Component {
     },
   }
 
+  componentDidMount(){
+    const { data } = this.props;
+    
+    if (data) {
+      this.onSearch(data.query, data.type);
+    }
+  }
+
   onSearch = async (text, type) => {
     const cleanedValue = text.trim().replace(' ', '+');
     this.setState({
@@ -60,8 +68,6 @@ class DesktopView extends Component {
     }
 
     this.setState({isLoading: false});
-
-    console.log('state: ', this.state);
   }
 
 
