@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Row, Col, Collapsible, CollapsibleItem, Icon, Preloader } from 'react-materialize';
 import Title from '../common/Title';
 import Search from '../common/Search';
+import Copyright from '../common/Copyright';
 import { searchTypes } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
@@ -141,6 +142,10 @@ class DesktopView extends Component {
               <Row>
                 <Col s={12}>
                   <div className="passage-text">{passageSearchResults.passages}</div>
+                </Col>
+
+                <Col s={12}>
+                  <Copyright />
                 </Col>
               </Row>
             }
