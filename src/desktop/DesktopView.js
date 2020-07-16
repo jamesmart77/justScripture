@@ -6,6 +6,7 @@ import { searchTypes } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
 import { Fade } from 'react-reveal';
+import getLocationQuery from '../utils/getLocationQuery';
 
 class DesktopView extends Component {
   state = {
@@ -39,7 +40,8 @@ class DesktopView extends Component {
   }
 
   componentDidMount(){
-    const { data } = this.props;
+    const { location } = this.props;
+    const data = getLocationQuery(location);
     
     if (data) {
       this.onSearch(data.query, data.type);
@@ -47,7 +49,9 @@ class DesktopView extends Component {
   }
 
   onSearch = async (text, type) => {
+    const { history } = this.props;
     const cleanedValue = text.trim().replace(' ', '+');
+
     this.setState({
       isLoading: true,
       isInitialState: false,
@@ -67,6 +71,8 @@ class DesktopView extends Component {
       toast.error("Search failed. Please simplify your search and try again.");
     }
 
+    history.push(`/bibleApp/${type}?q=${cleanedValue}`);
+
     this.setState({isLoading: false});
   }
 
@@ -78,7 +84,7 @@ class DesktopView extends Component {
       isLoading,
       passageSearchResults,
       isInitialState,
-     } = this.state;
+    } = this.state;
 
     return (
       <div className="desktop-container">

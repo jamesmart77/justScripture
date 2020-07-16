@@ -1,23 +1,21 @@
 import { searchTypes } from '../helpers/constants';
 
-export default function () {
-    const queryString = window.location.search;
-    const path = window.location.pathname;
+export default function (location) {
+    const { search, pathname } = location;
+    const { keyword, passages } = searchTypes;
+
+    const queryArr = search.split('q=');
     
-    const queryArr = queryString.split('q=');
-    console.log("query: ", queryArr)
+    if (pathname === '/bibleApp' || queryArr.length === 1) return
     
-    if (path === '/bibleApp' || queryArr.length === 1) return
+    let response = {
+        type: passages,
+        query: queryArr[1],
+    };
     
-    if (path.includes('passage')) {
-        return {
-            type: searchTypes.passages,
-            query: queryArr[1],
-        }
-    } else {
-        return {
-            type: searchTypes.keyword,
-            query: queryArr[1],
-        }
+    if (pathname.includes(keyword)) {
+        response.type = keyword;
     }
+
+    return response;
 }

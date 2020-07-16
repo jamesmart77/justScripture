@@ -1,31 +1,32 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom'; 
 import withSizes from 'react-sizes'
 import MobileView from '../mobile/MobileView';
 import DesktopView from '../desktop/DesktopView';
 import Footer from './Footer';
 import { ToastContainer } from 'react-toastify';
-import getLocationQuery from '../utils/getLocationQuery';
 
 class App extends Component {
 
   render() {
     const { isDesktop } = this.props;
-    const data = getLocationQuery();
-    
     
     return (
-      <div className="app-container">
-        <main>
-          {isDesktop ? (
-            <DesktopView data={data}/>
-          ) : (
-            <MobileView />
-          )}
-        </main>
-        <Footer />
+      <BrowserRouter>
+        <div className="app-container">
+          <main>
+            <Switch>
+              <Route path='/bibleApp' render={props => {
+                return isDesktop ? <DesktopView {...props} /> : <MobileView />
+              }}/>
+            </Switch>
+          </main>
 
-        <ToastContainer autoClose={false} /> 
-      </div>
+          <Footer />
+
+          <ToastContainer autoClose={false} /> 
+        </div>
+      </BrowserRouter>
     );
   }
 }
