@@ -16,7 +16,7 @@ const getPassageResults = async (query) => {
 }
 
 const getKeywordResults = async (query) => {
-    const { data } = await axios.get(`https://api.esv.org/v3/passage/search/?q=${query}`, config);
+    const { data } = await axios.get(`https://api.esv.org/v3/passage/search/?q=${query}&page-size=100`, config);
     return data;
 }
 

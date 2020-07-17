@@ -1,0 +1,13 @@
+@import '../appColors';
+
+.keyword-result-container {
+    margin: 1.5rem 1.5rem 2.5rem;
+
+    .title {
+        font-weight: 200;
+    }
+
+    .text {
+        padding: 0 0.25rem;
+    }
+}

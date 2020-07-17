@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapsible, CollapsibleItem, Icon, Preloader } from 'react-materialize';
-import Title from '../common/Title';
-import Search from '../common/Search';
-import Copyright from '../common/Copyright';
-import { searchTypes } from '../helpers/constants';
+import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
 import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
+import Title from '../common/Title';
+import Search from '../common/Search';
+import Copyright from '../common/Copyright';
+import KeywordResult from '../common/KeywordResult';
 
 class DesktopView extends Component {
   state = {
@@ -15,29 +16,8 @@ class DesktopView extends Component {
     isKeywordExpanded: false,
     isLoading: false,
     isInitialState: true,
-    keywordSearchResults: {
-      total_results: 0,
-      results: [
-        {
-          reference: "",
-          content: ""
-        },
-      ],
-    },
-    passageSearchResults: {
-      passage_meta: [
-        {
-          canonical: "",
-          chapter_start: [],
-          chapter_end: [],
-          prev_verse: 0,
-          next_verse: 0,
-          prev_chapter: [],
-          next_chapter: []
-        }
-      ],
-      passages: "",
-    },
+    keywordSearchResults: keywordSearchResultsInitial,
+    passageSearchResults: passageSearchResultsInitial,
   }
 
   componentDidMount(){
@@ -61,11 +41,17 @@ class DesktopView extends Component {
     try {
       if (type === searchTypes.keyword) {
         const data = await getKeywordResults(cleanedValue);
-
-        await this.setState({keywordSearchResults: data});
+        await this.setState({
+          keywordSearchResults: data,
+          passageSearchResultsInitial,
+        });
+        console.log('state: ', this.state);
       } else {
         const data = await getPassageResults(cleanedValue);
-        await this.setState({passageSearchResults: data});
+        await this.setState({
+          passageSearchResults: data,
+          keywordSearchResultsInitial,
+        });
       }
     } catch(error) {
       console.error("ERROR: ", error);
@@ -84,6 +70,7 @@ class DesktopView extends Component {
       isKeywordExpanded, 
       isLoading,
       passageSearchResults,
+      keywordSearchResults,
       isInitialState,
     } = this.state;
 
@@ -148,6 +135,22 @@ class DesktopView extends Component {
                   <Copyright />
                 </Col>
               </Row>
+            }
+
+            { !isInitialState && 
+              !isLoading && 
+              keywordSearchResults.results &&
+              keywordSearchResults.results.length > 0 &&
+
+               <Row>
+                 <Col s={12}>
+                   {keywordSearchResults.results.map(result => <KeywordResult {...result} />)}
+                 </Col>
+
+                 <Col s={12}>
+                   <Copyright />
+                 </Col>
+               </Row>
             }
           </Col>
         </Row>
