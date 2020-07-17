@@ -31,7 +31,7 @@ class DesktopView extends Component {
 
   onSearch = async (text, type) => {
     const { history } = this.props;
-    const cleanedValue = text.trim().replace(' ', '+');
+    const cleanedValue = text.trim().replace(/ /g, '+');
 
     this.setState({
       isLoading: true,
@@ -43,14 +43,14 @@ class DesktopView extends Component {
         const data = await getKeywordResults(cleanedValue);
         await this.setState({
           keywordSearchResults: data,
-          passageSearchResultsInitial,
+          passageSearchResults: passageSearchResultsInitial,
         });
         console.log('state: ', this.state);
       } else {
         const data = await getPassageResults(cleanedValue);
         await this.setState({
           passageSearchResults: data,
-          keywordSearchResultsInitial,
+          keywordSearchResults: keywordSearchResultsInitial,
         });
       }
     } catch(error) {
@@ -123,6 +123,7 @@ class DesktopView extends Component {
 
             { !isInitialState && 
               !isLoading && 
+              passageSearchResults !== passageSearchResultsInitial &&
               passageSearchResults.passages &&
               passageSearchResults.passages.length > 0 &&
 
@@ -139,12 +140,15 @@ class DesktopView extends Component {
 
             { !isInitialState && 
               !isLoading && 
+              keywordSearchResults !== keywordSearchResultsInitial &&
               keywordSearchResults.results &&
               keywordSearchResults.results.length > 0 &&
 
                <Row>
                  <Col s={12}>
-                   {keywordSearchResults.results.map(result => <KeywordResult {...result} />)}
+                    {keywordSearchResults.results.map(result => (
+                      <KeywordResult key={`key-${result.reference}`} search={this.onSearch} {...result} />
+                    ))}
                  </Col>
 
                  <Col s={12}>

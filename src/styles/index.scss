@@ -16,4 +16,17 @@ main {
     display: flex;
     flex: 1 0 auto;
     flex-direction: column;
-  }
+}
+
+.error-toast-container {
+    background-color: $secondarySalmon !important;
+    
+    .Toastify__toast--error {
+        background-color: $secondarySalmon !important;
+        margin-bottom: 0 !important;
+    }
+
+    .Toastify__toast-body {
+        background-color: $secondarySalmon !important;
+    }
+}

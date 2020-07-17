@@ -1,9 +1,17 @@
 import React from 'react';
 
 function Title () {
+
+  const resetApp = () => window.location.href = "/bibleApp";
+  
   return (
-    <div className="title-container">
-      <h2 className="text">Bible App</h2>
+    <div
+      onClick={resetApp}
+      onKeyPress={resetApp}
+      className="title-container"
+      title="Reset Searches"
+    >
+        <h2 className="text">Bible App</h2>
     </div>
   );
 }

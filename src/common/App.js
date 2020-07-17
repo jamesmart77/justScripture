@@ -24,7 +24,10 @@ class App extends Component {
 
           <Footer />
 
-          <ToastContainer autoClose={false} /> 
+          <ToastContainer 
+            className="error-toast-container"
+            autoClose={false} 
+          /> 
         </div>
       </BrowserRouter>
     );
