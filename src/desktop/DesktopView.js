@@ -63,6 +63,20 @@ class DesktopView extends Component {
     this.setState({isLoading: false});
   }
 
+  getPrevChapter = () => {
+    const { passageSearchResults } = this.state;
+    const prevChapArr = passageSearchResults.passage_meta[0].prev_chapter;
+
+    return prevChapArr.join('-');
+  }
+
+  getNextChapter = () => {
+    const { passageSearchResults } = this.state;
+    const nextChapArr = passageSearchResults.passage_meta[0].next_chapter;
+
+    return nextChapArr.join('-');
+  }
+
 
   render() {
     const { 
@@ -73,6 +87,9 @@ class DesktopView extends Component {
       keywordSearchResults,
       isInitialState,
     } = this.state;
+
+    const prevChapRef = this.getPrevChapter();
+    const nextChapRef = this.getNextChapter();
 
     return (
       <div className="desktop-container">
@@ -128,8 +145,32 @@ class DesktopView extends Component {
               passageSearchResults.passages.length > 0 &&
 
               <Row>
-                <Col s={12}>
+                <Col s={1}>
+                  <div 
+                    className="chapter-nav nav-left"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => this.onSearch(prevChapRef, searchTypes.passages)}
+                    onKeyPress={() => this.onSearch(prevChapRef, searchTypes.passages)}
+                    title="Previous Chapter"
+                  >
+                    <Icon>chevron_left</Icon>
+                  </div>
+                </Col>
+                <Col s={10}>
                   <div className="passage-text">{passageSearchResults.passages}</div>
+                </Col>
+                <Col s={1}>
+                  <div 
+                    className="chapter-nav nav-right"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => this.onSearch(nextChapRef, searchTypes.passages)}
+                    onKeyPress={() => this.onSearch(nextChapRef, searchTypes.passages)}
+                    title="Next Chapter"
+                  >
+                    <Icon>chevron_right</Icon>
+                  </div>
                 </Col>
 
                 <Col s={12}>
