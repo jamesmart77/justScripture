@@ -6,15 +6,22 @@
         text-align: right;
 
         .search-btn {
-            background-color: $secondarySalmon;
             color: $white;
             width: 100%;
-
+            
             .icon {
                 margin-right: 0.5rem;
                 position: relative;
                 top: 0.25rem;
             }
+        }
+        
+        .desktop-view {
+            background-color: $secondarySalmon;
+        }
+        .mobile-view {
+            background-color: $primaryTeal;
+            margin-top: 1rem;
         }
     }
 }

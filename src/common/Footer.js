@@ -1,12 +1,9 @@
 import React from 'react';
 
 function Footer () {
-  const currentYear = new Date().getFullYear();
-  
   return (
     <footer className="footer-container">
-        &copy; {currentYear} 
-        {' '}
+        {' Built & Designed by '}
         <a 
         href="https://jamesmart77.github.io" 
         target="_blank" 

@@ -4,7 +4,7 @@ import { searchTypes } from '../helpers/constants';
 
 function Search (props) {
 
-    const { type, onSearch } = props;
+    const { type, onSearch, viewMode } = props;
     const [text, setText] = useState('');
 
     const handleSearch = (e) => {
@@ -25,7 +25,7 @@ function Search (props) {
                 <Row>
                     <Col s={12} className="btn-wrapper">
                         <Button 
-                            className="search-btn"
+                            className={`${viewMode} search-btn`}
                             type="submit"
                             waves="light"
                         >

@@ -1,0 +1,31 @@
+@import '../appColors';
+
+.mobile-container {
+
+    .search-wrapper {
+        background-color: $grey6;
+        border-bottom: 2px solid $grey5;
+
+        .row-wrapper {
+            margin-bottom: 0 !important;
+        }
+        
+        .type-col {
+            margin: 1.5rem 0;
+            text-align: center;
+
+            .inactive-type-btn, .active-type-btn { 
+                width: 100%;
+            }
+
+            .inactive-type-btn {
+                background-color: $slate4;
+            }
+
+            .active-type-btn {
+                background-color: $secondarySalmon;
+            }
+        }
+    }
+    
+}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'; 
 import withSizes from 'react-sizes'
-import MobileView from '../mobile/MobileView';
-import DesktopView from '../desktop/DesktopView';
-import Footer from './Footer';
+import MobileView from './MobileView';
+import DesktopView from './DesktopView';
+import Footer from '../common/Footer';
 import { ToastContainer } from 'react-toastify';
 
 class App extends Component {

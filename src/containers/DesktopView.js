@@ -45,7 +45,6 @@ class DesktopView extends Component {
           keywordSearchResults: data,
           passageSearchResults: passageSearchResultsInitial,
         });
-        console.log('state: ', this.state);
       } else {
         const data = await getPassageResults(cleanedValue);
         await this.setState({
@@ -108,7 +107,7 @@ class DesktopView extends Component {
                   })}
                   icon={isPassageExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
                 >
-                  <Search type={searchTypes.passages} onSearch={this.onSearch}/>
+                  <Search viewMode='desktop-view' type={searchTypes.passages} onSearch={this.onSearch}/>
                 </CollapsibleItem>
                 <CollapsibleItem 
                   header="Keyword" 
@@ -119,7 +118,7 @@ class DesktopView extends Component {
                   })}
                   icon={isKeywordExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
                 >
-                  <Search type={searchTypes.keyword} onSearch={this.onSearch}/>
+                  <Search viewMode='desktop-view' type={searchTypes.keyword} onSearch={this.onSearch}/>
                 </CollapsibleItem>
               </Collapsible>
               </Fade>
