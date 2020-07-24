@@ -7,6 +7,7 @@ import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
 import Search from '../common/Search';
+import MobileSearch from '../common/MobileSearch';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
 
@@ -28,6 +29,11 @@ class MobileView extends Component {
   //     this.onSearch(data.query, data.type);
   //   }
   // }
+
+  toggleSearch = () => {
+    const { isSearchExpanded } = this.state;
+    this.setState({ isSearchExpanded: !isSearchExpanded });
+  }
 
   onSearch = async (text, type) => {
     const { history } = this.props;
@@ -92,54 +98,29 @@ class MobileView extends Component {
 
     return (
       <div className="mobile-container">
-        <Title />
+          <Fade duration={750} top when={isSearchExpanded}>
+            {isSearchExpanded && 
+              <MobileSearch />
+            } 
+          </Fade>
+        <Title isMobileView toggleSearch={this.toggleSearch} isSearchExpanded={isSearchExpanded}/>
         <Fade top>
           <div className="search-wrapper"> 
             <Row className="row-wrapper">
-              <Col s={6} className="type-col">
+              {/* <Col s={6} className="type-col">
                 <Button className={searchType === searchTypes.passages ? "active-type-btn" : "inactive-type-btn"}>Passage</Button>
               </Col>
               <Col s={6} className="type-col">
                 <Button className={searchType === searchTypes.keyword ? "active-type-btn" : "inactive-type-btn"}>Keyword</Button>
-              </Col>
-
-              <Row>
-                <Col s={12}>
-                  <Search viewMode='mobile-view' type={searchType} onSearch={this.onSearch}/>
-                </Col>
-              </Row>
+              </Col> */}
             </Row>
           </div>
-          {/* <Collapsible>
-            <CollapsibleItem 
-              header="Passages" 
-              expanded={true} 
-              node="div"
-              onClick={() => this.setState({ 
-                isKeywordExpanded: false,
-                isPassageExpanded: !isPassageExpanded,
-              })}
-              icon={isPassageExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
-            >
-              <Search type={searchTypes.passages} onSearch={this.onSearch}/>
-            </CollapsibleItem>
-            <CollapsibleItem 
-              header="Keyword" 
-              node="div"
-              onClick={() => this.setState({ 
-                isKeywordExpanded: !isKeywordExpanded,
-                isPassageExpanded: false,
-              })}
-              icon={isKeywordExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
-            >
-              <Search type={searchTypes.keyword} onSearch={this.onSearch}/>
-            </CollapsibleItem>
-          </Collapsible> */}
+        
           </Fade>
-          {/* <Col xl={9} m={8} className="col-wrapper display-col">
-            { isLoading && !isInitialState &&
+          <Col xl={9} m={8} className="col-wrapper display-col">
+            {/* { isLoading && !isInitialState &&
               <Preloader className="loading-spinner" />
-            }
+            } */}
 
             { isInitialState && !isLoading &&
               <Fade top duration={2000}>
@@ -150,7 +131,7 @@ class MobileView extends Component {
               </Fade>
             }
 
-            { !isInitialState && 
+            {/* { !isInitialState && 
               !isLoading && 
               passageSearchResults !== passageSearchResultsInitial &&
               passageSearchResults.passages &&
@@ -208,8 +189,8 @@ class MobileView extends Component {
                    <Copyright />
                  </Col>
                </Row>
-            }
-          </Col> */}
+            } */}
+          </Col>
       </div>
     );
   }

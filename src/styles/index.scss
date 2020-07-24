@@ -18,14 +18,14 @@ main {
 }
 
 .error-toast-container {
-    background-color: $secondarySalmon !important;
+    background-color: $salmon2 !important;
     
     .Toastify__toast--error {
-        background-color: $secondarySalmon !important;
+        background-color: $salmon2 !important;
         margin-bottom: 0 !important;
     }
 
     .Toastify__toast-body {
-        background-color: $secondarySalmon !important;
+        background-color: $salmon2 !important;
     }
 }

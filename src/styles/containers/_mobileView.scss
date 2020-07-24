@@ -23,8 +23,17 @@
             }
 
             .active-type-btn {
-                background-color: $secondarySalmon;
+                background-color: $salmon2;
             }
+        }
+    }
+
+    .display-col {
+        
+        .pre-search-msg {
+            color: $grey4;
+            margin: 5rem 1.5rem;
+            text-align: center;
         }
     }
     
