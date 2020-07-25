@@ -32,8 +32,58 @@
         
         .pre-search-msg {
             color: $grey4;
-            margin: 5rem 1.5rem;
+            margin: 5rem 1.5rem 10rem;
             text-align: center;
+        }
+
+        .chapter-nav {
+            border: 1px solid $grey4;
+            border-radius: 2rem;
+            cursor: pointer;
+            padding: 0.6rem 0.75rem;
+            position: fixed;
+            top: 15rem;
+            transition: 0.3s;
+
+            i {
+                margin: 0.25rem 0.1rem 0.1rem;
+            }
+
+            &:hover, &:active, &:focus {
+                background-color: $grey3;
+                color: $white;
+            }
+        }
+
+        .nav-left {
+            margin-left: 1.5rem;
+        }
+
+        .nav-right {
+            right: 2.5rem;
+        }
+
+        .passage-text {
+            font-size: 1.25rem;
+
+            .extra_text {
+                display: flex;
+                font-size: 2.75rem;
+                justify-content: space-between;
+
+                .audio {
+                    font-size: 1.25rem;
+                }
+            }
+
+            h3 {
+                font-size: 2.25rem;
+            }
+
+            .footnotes {
+                display: block;
+                font-size: 1.25rem;
+            }
         }
     }
     

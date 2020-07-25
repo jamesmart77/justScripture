@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { Row, Col, Button, Icon, Preloader } from 'react-materialize';
+import { Row, Col, Preloader, Icon } from 'react-materialize';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
 import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
-import Search from '../common/Search';
 import MobileSearch from '../common/MobileSearch';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
@@ -14,7 +13,6 @@ import KeywordResult from '../common/KeywordResult';
 class MobileView extends Component {
   state = {
     isSearchExpanded: true,
-    searchType: searchTypes.passages,
     isLoading: false,
     isInitialState: true,
     keywordSearchResults: keywordSearchResultsInitial,
@@ -86,52 +84,38 @@ class MobileView extends Component {
   render() {
     const { 
       isSearchExpanded, 
-      searchType,
       isLoading,
       passageSearchResults,
       keywordSearchResults,
       isInitialState,
     } = this.state;
 
-    // const prevChapRef = this.getPrevChapter();
-    // const nextChapRef = this.getNextChapter();
+    const prevChapRef = this.getPrevChapter();
+    const nextChapRef = this.getNextChapter();
 
     return (
       <div className="mobile-container">
           <Fade duration={750} top when={isSearchExpanded}>
             {isSearchExpanded && 
-              <MobileSearch />
+              <MobileSearch onSearch={this.onSearch} />
             } 
           </Fade>
         <Title isMobileView toggleSearch={this.toggleSearch} isSearchExpanded={isSearchExpanded}/>
-        <Fade top>
-          <div className="search-wrapper"> 
-            <Row className="row-wrapper">
-              {/* <Col s={6} className="type-col">
-                <Button className={searchType === searchTypes.passages ? "active-type-btn" : "inactive-type-btn"}>Passage</Button>
-              </Col>
-              <Col s={6} className="type-col">
-                <Button className={searchType === searchTypes.keyword ? "active-type-btn" : "inactive-type-btn"}>Keyword</Button>
-              </Col> */}
-            </Row>
-          </div>
-        
-          </Fade>
+        <Row>
           <Col xl={9} m={8} className="col-wrapper display-col">
-            {/* { isLoading && !isInitialState &&
+            { isLoading && !isInitialState &&
               <Preloader className="loading-spinner" />
-            } */}
+            }
 
             { isInitialState && !isLoading &&
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
                   <p>Welcome to the Bible App. Search passages, verses, and keywords in the ESV Bible.</p>
-                  <Icon>search</Icon>
                 </div>
               </Fade>
             }
 
-            {/* { !isInitialState && 
+            { !isInitialState && 
               !isLoading && 
               passageSearchResults !== passageSearchResultsInitial &&
               passageSearchResults.passages &&
@@ -170,9 +154,9 @@ class MobileView extends Component {
                   <Copyright />
                 </Col>
               </Row>
-            }
+            } 
 
-            { !isInitialState && 
+            {/* { !isInitialState && 
               !isLoading && 
               keywordSearchResults !== keywordSearchResultsInitial &&
               keywordSearchResults.results &&
@@ -189,8 +173,9 @@ class MobileView extends Component {
                    <Copyright />
                  </Col>
                </Row>
-            } */}
+            }  */}
           </Col>
+        </Row>
       </div>
     );
   }

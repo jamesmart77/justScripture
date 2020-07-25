@@ -17,7 +17,7 @@ class App extends Component {
           <main>
             <Switch>
               <Route path='/bibleApp' render={props => {
-                return isDesktop ? <DesktopView {...props} /> : <MobileView />
+                return isDesktop ? <DesktopView {...props} /> : <MobileView {...props} />
               }}/>
             </Switch>
           </main>

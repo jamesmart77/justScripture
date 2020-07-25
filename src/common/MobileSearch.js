@@ -31,7 +31,7 @@ function MobileSearch (props) {
                             className={type === searchTypes.keyword ? "type-btn keyword-btn active" : "type-btn keyword-btn"}
                             onClick={() => setType(searchTypes.keyword)}
                         >
-                            <Icon>vpn_key</Icon>
+                            <Icon>search</Icon>
                             {type === searchTypes.keyword && "Keyword"}
                         </Button>
                     
@@ -53,7 +53,6 @@ function MobileSearch (props) {
                                         type="submit"
                                         waves="light"
                                     >
-                                        <Icon className="icon">search</Icon>
                                         Search
                                     </Button>
                                 </Col>
