@@ -95,18 +95,19 @@ class MobileView extends Component {
 
     return (
       <div className="mobile-container">
-          <Fade duration={750} top when={isSearchExpanded}>
-            {isSearchExpanded && 
-              <MobileSearch onSearch={this.onSearch} />
-            } 
-          </Fade>
-        <Title isMobileView toggleSearch={this.toggleSearch} isSearchExpanded={isSearchExpanded}/>
+        <MobileSearch 
+          isSearchExpanded 
+          toggleSearch={this.toggleSearch} 
+          onSearch={this.onSearch} 
+        />
+        <Title isMobileView />
         <Row>
-          <Col xl={9} m={8} className="col-wrapper display-col">
+          <Col s={12} className="col-wrapper display-col">
             { isLoading && !isInitialState &&
               <Preloader className="loading-spinner" />
             }
 
+            {/* TODO make more DRY */}
             { isInitialState && !isLoading &&
               <Fade top duration={2000}>
                 <div className="pre-search-msg">

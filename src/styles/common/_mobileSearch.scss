@@ -1,7 +1,10 @@
 @import '../appColors';
 
 .mobile-search-container {
+    bottom: 0;
+    position: fixed;
     transition: 1s;
+    width: 100%;
 
     .wrapper.passages {
         background-color: $primaryTeal;
@@ -11,16 +14,43 @@
         background-color: $salmon2;
     }
 
-    .title {
-        color: $white;
-        font-weight: 300;
-        margin: 0 !important;
-        padding: 2rem;
+    .navigator-row {
+        background-color: $grey1;
+        margin-bottom: 0 !important;
+        padding: 0.75rem 1rem 0.5rem;
+
+        .search-toggle {
+            &-col {
+                text-align: center;
+            }
+
+            &-btn {
+                border: 1px solid;
+                cursor: pointer;
+                width: 25%;
+                margin: 0 auto;
+                width: 5.5rem;
+                border-radius: 10rem;
+                z-index: 999;
+                background: lightgray;
+                height: 5.5rem;
+                position: absolute;
+                left: 50%;
+                top: -1.5rem;
+                margin-left: -2.7rem;
+
+                i {
+                    font-size: 2.5rem;
+                    position: relative;
+                    top: 1.75rem;
+                }
+            }
+        }
     }
 
     .type-row {
         margin-bottom: 0 !important;
-        padding-bottom: 1.25rem;
+        padding: 1.25rem 0;
     }
 
     .type-col {

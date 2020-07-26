@@ -22,7 +22,9 @@ class App extends Component {
             </Switch>
           </main>
 
-          <Footer />
+          { isDesktop && 
+            <Footer />
+          }
 
           <ToastContainer 
             className="error-toast-container"
