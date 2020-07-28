@@ -28,63 +28,145 @@
         }
     }
 
-    .display-col {
-        
-        .pre-search-msg {
-            color: $grey4;
-            margin: 5rem 1.5rem 10rem;
-            text-align: center;
-        }
+    .content-row {
+        // min-height: 23rem;
 
-        .chapter-nav {
-            border: 1px solid $grey4;
-            border-radius: 2rem;
-            cursor: pointer;
-            padding: 0.6rem 0.75rem;
-            position: fixed;
-            top: 15rem;
-            transition: 0.3s;
+        .display-col {
 
-            i {
-                margin: 0.25rem 0.1rem 0.1rem;
+            .loading-spinner {
+                left: 50%;
+                margin-left: -2.5rem;
+                margin-top: 30%;
+                position: relative;
+            }
+            
+            .pre-search-msg {
+                color: $grey4;
+                margin: 5rem 1.5rem 10rem;
+                text-align: center;
             }
 
-            &:hover, &:active, &:focus {
-                background-color: $grey3;
-                color: $white;
-            }
-        }
+            .chapter-nav {
+                border: 1px solid $grey4;
+                border-radius: 2rem;
+                cursor: pointer;
+                padding: 0.6rem 0.75rem;
+                position: fixed;
+                top: 15rem;
+                transition: 0.3s;
 
-        .nav-left {
-            margin-left: 1.5rem;
-        }
+                i {
+                    margin: 0.25rem 0.1rem 0.1rem;
+                }
 
-        .nav-right {
-            right: 2.5rem;
-        }
-
-        .passage-text {
-            font-size: 1.25rem;
-
-            .extra_text {
-                display: flex;
-                font-size: 2.75rem;
-                justify-content: space-between;
-
-                .audio {
-                    font-size: 1.25rem;
+                &:hover, &:active, &:focus {
+                    background-color: $grey3;
+                    color: $white;
                 }
             }
 
-            h3 {
-                font-size: 2.25rem;
+            .nav-left {
+                margin-left: 1.5rem;
             }
 
-            .footnotes {
-                display: block;
+            .nav-right {
+                right: 2.5rem;
+            }
+
+            .passage-text {
                 font-size: 1.25rem;
+
+                .extra_text {
+                    display: flex;
+                    font-size: 2.75rem;
+                    justify-content: space-between;
+
+                    .audio {
+                        font-size: 1.25rem;
+                    }
+                }
+
+                h3 {
+                    font-size: 2.25rem;
+                }
+
+                .footnotes {
+                    display: block;
+                    font-size: 1.25rem;
+                }
             }
         }
     }
     
+    .navigator-row {
+        background-color: $grey2;
+        bottom: 0;
+        margin-bottom: 0 !important;
+        padding: 0 1rem 0.5rem;
+        position: fixed;
+        width: 100%;
+
+        .search-toggle {
+            &-col {
+                text-align: center;
+            }
+
+            &-btn {
+                border: 1px solid $grey4;
+                cursor: pointer;
+                width: 25%;
+                margin: 0 auto;
+                width: 4rem;
+                border-radius: 10rem;
+                z-index: 999;
+                background: $grey2;
+                height: 4rem;
+                position: relative;
+                bottom: 0.75rem;
+
+                i {
+                    color: $grey4;
+                    font-size: 2.5rem;
+                    position: relative;
+                    top: 0.75rem;
+                }
+            }
+        }
+    }
 }
+
+// @media only screen and (max-height: 812px) {
+//     .mobile-container {
+//         .content-row {
+//             min-height: 28.5rem;
+//         }
+//     }
+// }
+
+// @media only screen and (max-height: 735px) {
+//     .mobile-container {
+//         .content-row {
+//             min-height: 18rem;
+
+//             .display-col {
+//                 .pre-search-msg {
+//                     margin: 4rem 1.5rem 10rem;
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// @media only screen and (max-height: 666px) {
+//     .mobile-container {
+//         .content-row {
+//             min-height: 0;
+
+//             .display-col {
+//                 .pre-search-msg {
+//                     margin: 3rem 1.5rem 10rem;
+//                 }
+//             }
+//         }
+//     }
+// }

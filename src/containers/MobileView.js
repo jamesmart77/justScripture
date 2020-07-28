@@ -37,10 +37,7 @@ class MobileView extends Component {
     const { history } = this.props;
     const cleanedValue = text.trim().replace(/ /g, '+');
 
-    this.setState({
-      isLoading: true,
-      isInitialState: false,
-    });
+    await this.setState({isSearchExpanded: false});
 
     try {
       if (type === searchTypes.keyword) {
@@ -63,7 +60,7 @@ class MobileView extends Component {
 
     history.push(`/bibleApp/${type}?q=${cleanedValue}`);
 
-    this.setState({isLoading: false});
+    this.setState({isInitialState: false});
   }
 
   getPrevChapter = () => {
@@ -95,17 +92,12 @@ class MobileView extends Component {
 
     return (
       <div className="mobile-container">
-        <MobileSearch 
-          isSearchExpanded 
-          toggleSearch={this.toggleSearch} 
-          onSearch={this.onSearch} 
-        />
         <Title isMobileView />
-        <Row>
+        <Row className="content-row">
           <Col s={12} className="col-wrapper display-col">
-            { isLoading && !isInitialState &&
+            {/* { isLoading && !isInitialState &&
               <Preloader className="loading-spinner" />
-            }
+            } */}
 
             {/* TODO make more DRY */}
             { isInitialState && !isLoading &&
@@ -124,7 +116,7 @@ class MobileView extends Component {
 
               <Row>
                 <Col s={1}>
-                  <div 
+                  {/* <div 
                     className="chapter-nav nav-left"
                     role="button"
                     tabIndex={0}
@@ -133,13 +125,13 @@ class MobileView extends Component {
                     title="Previous Chapter"
                   >
                     <Icon>chevron_left</Icon>
-                  </div>
+                  </div> */}
                 </Col>
                 <Col s={10}>
                   <div className="passage-text">{passageSearchResults.passages}</div>
                 </Col>
                 <Col s={1}>
-                  <div 
+                  {/* <div 
                     className="chapter-nav nav-right"
                     role="button"
                     tabIndex={0}
@@ -148,7 +140,7 @@ class MobileView extends Component {
                     title="Next Chapter"
                   >
                     <Icon>chevron_right</Icon>
-                  </div>
+                  </div> */}
                 </Col>
 
                 <Col s={12}>
@@ -176,6 +168,33 @@ class MobileView extends Component {
                </Row>
             }  */}
           </Col>
+        </Row>
+        <Row className="navigator-row">
+            <Col s={12}>
+              <Fade bottom duration={500} when={isSearchExpanded}>
+                {isSearchExpanded &&
+                  <MobileSearch 
+                    isSearchExpanded 
+                    onSearch={this.onSearch} 
+                  />
+                }
+              </Fade>
+            </Col>
+            <Col s={1}>
+                {!isSearchExpanded && !isInitialState &&
+                  <Icon>chevron_left</Icon>
+                }
+            </Col>
+            <Col s={10} className="search-toggle-col">
+                <div className="search-toggle-btn" onClick={this.toggleSearch}>
+                    <Icon>{isSearchExpanded ? 'keyboard_arrow_down' : 'search'}</Icon>
+                </div>
+            </Col>
+            <Col s={1}>
+                {!isSearchExpanded && !isInitialState &&
+                  <Icon>chevron_right</Icon>
+                }
+            </Col>
         </Row>
       </div>
     );
