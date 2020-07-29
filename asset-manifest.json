@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/bibleApp/static/css/main.250e9cb1.chunk.css",
-    "main.js": "/bibleApp/static/js/main.bd336600.chunk.js",
-    "main.js.map": "/bibleApp/static/js/main.bd336600.chunk.js.map",
+    "main.css": "/bibleApp/static/css/main.e4b3307f.chunk.css",
+    "main.js": "/bibleApp/static/js/main.a3df5be8.chunk.js",
+    "main.js.map": "/bibleApp/static/js/main.a3df5be8.chunk.js.map",
     "runtime-main.js": "/bibleApp/static/js/runtime-main.211d6da4.js",
     "runtime-main.js.map": "/bibleApp/static/js/runtime-main.211d6da4.js.map",
     "static/css/2.d34346ea.chunk.css": "/bibleApp/static/css/2.d34346ea.chunk.css",
-    "static/js/2.78ac7403.chunk.js": "/bibleApp/static/js/2.78ac7403.chunk.js",
-    "static/js/2.78ac7403.chunk.js.map": "/bibleApp/static/js/2.78ac7403.chunk.js.map",
+    "static/js/2.d4bf8270.chunk.js": "/bibleApp/static/js/2.d4bf8270.chunk.js",
+    "static/js/2.d4bf8270.chunk.js.map": "/bibleApp/static/js/2.d4bf8270.chunk.js.map",
     "index.html": "/bibleApp/index.html",
-    "precache-manifest.af266979837058c13a3c51241aebe069.js": "/bibleApp/precache-manifest.af266979837058c13a3c51241aebe069.js",
+    "precache-manifest.0b7a5c8372cf6b3e100a8d080554bf01.js": "/bibleApp/precache-manifest.0b7a5c8372cf6b3e100a8d080554bf01.js",
     "service-worker.js": "/bibleApp/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/bibleApp/static/css/2.d34346ea.chunk.css.map",
-    "static/css/main.250e9cb1.chunk.css.map": "/bibleApp/static/css/main.250e9cb1.chunk.css.map",
-    "static/js/2.78ac7403.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.78ac7403.chunk.js.LICENSE.txt"
+    "static/css/main.e4b3307f.chunk.css.map": "/bibleApp/static/css/main.e4b3307f.chunk.css.map",
+    "static/js/2.d4bf8270.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.d4bf8270.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.211d6da4.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.78ac7403.chunk.js",
-    "static/css/main.250e9cb1.chunk.css",
-    "static/js/main.bd336600.chunk.js"
+    "static/js/2.d4bf8270.chunk.js",
+    "static/css/main.e4b3307f.chunk.css",
+    "static/js/main.a3df5be8.chunk.js"
   ]
 }
