@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/bibleApp/static/css/main.e4b3307f.chunk.css",
-    "main.js": "/bibleApp/static/js/main.a3df5be8.chunk.js",
-    "main.js.map": "/bibleApp/static/js/main.a3df5be8.chunk.js.map",
+    "main.css": "/bibleApp/static/css/main.667c6e52.chunk.css",
+    "main.js": "/bibleApp/static/js/main.b546c2dd.chunk.js",
+    "main.js.map": "/bibleApp/static/js/main.b546c2dd.chunk.js.map",
     "runtime-main.js": "/bibleApp/static/js/runtime-main.211d6da4.js",
     "runtime-main.js.map": "/bibleApp/static/js/runtime-main.211d6da4.js.map",
     "static/css/2.d34346ea.chunk.css": "/bibleApp/static/css/2.d34346ea.chunk.css",
     "static/js/2.d4bf8270.chunk.js": "/bibleApp/static/js/2.d4bf8270.chunk.js",
     "static/js/2.d4bf8270.chunk.js.map": "/bibleApp/static/js/2.d4bf8270.chunk.js.map",
     "index.html": "/bibleApp/index.html",
-    "precache-manifest.0b7a5c8372cf6b3e100a8d080554bf01.js": "/bibleApp/precache-manifest.0b7a5c8372cf6b3e100a8d080554bf01.js",
+    "precache-manifest.ab384cd09fff180262056d1ae727ebab.js": "/bibleApp/precache-manifest.ab384cd09fff180262056d1ae727ebab.js",
     "service-worker.js": "/bibleApp/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/bibleApp/static/css/2.d34346ea.chunk.css.map",
-    "static/css/main.e4b3307f.chunk.css.map": "/bibleApp/static/css/main.e4b3307f.chunk.css.map",
+    "static/css/main.667c6e52.chunk.css.map": "/bibleApp/static/css/main.667c6e52.chunk.css.map",
     "static/js/2.d4bf8270.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.d4bf8270.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.211d6da4.js",
     "static/css/2.d34346ea.chunk.css",
     "static/js/2.d4bf8270.chunk.js",
-    "static/css/main.e4b3307f.chunk.css",
-    "static/js/main.a3df5be8.chunk.js"
+    "static/css/main.667c6e52.chunk.css",
+    "static/js/main.b546c2dd.chunk.js"
   ]
 }
