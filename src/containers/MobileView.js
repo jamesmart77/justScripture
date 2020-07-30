@@ -14,6 +14,7 @@ class MobileView extends Component {
   state = {
     isSearchExpanded: false,
     isInitialState: true,
+    isEnteringInput: false,
     keywordSearchResults: keywordSearchResultsInitial,
     passageSearchResults: passageSearchResultsInitial,
   }
@@ -27,6 +28,7 @@ class MobileView extends Component {
     } else {
       this.setState({isSearchExpanded: true});
     }
+    this.handleInputListener();
   }
 
   toggleSearch = () => {
@@ -77,6 +79,27 @@ class MobileView extends Component {
     return nextChapArr.join('-');
   }
 
+  handleInputListener = () => {
+    if (window.screen.height > 700) return;
+    
+    const _this = this;
+  
+    // wait for DOM to paint before running listener dependent code.
+    window.requestAnimationFrame(function() {
+      const searchInput = document.getElementById('search');
+
+      if (searchInput) {
+        searchInput.addEventListener('focus', () => {
+            _this.setState({isEnteringInput: true});  
+          });
+          
+          searchInput.addEventListener('blur', () => {
+            _this.setState({isEnteringInput: false});  
+        });
+      }
+    })
+  }
+
 
   render() {
     const { 
@@ -84,6 +107,7 @@ class MobileView extends Component {
       passageSearchResults,
       keywordSearchResults,
       isInitialState,
+      isEnteringInput,
     } = this.state;
 
     const prevChapRef = this.getPrevChapter();
@@ -144,26 +168,28 @@ class MobileView extends Component {
           </Col>
         </Row>
         <Row className="navigator-row">
+            { isSearchExpanded &&
+              <Col s={12} className="author-col">
+                <small>{'Created by '}
+                  <a 
+                  href="https://jamesmart77.github.io" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  >
+                    James Martineau
+                  </a>
+                </small>
+              </Col>
+            }
             <Col s={12} className="mobile-search-wrapper">
               <Fade bottom duration={750} when={isSearchExpanded}>
                 {isSearchExpanded &&
                   <MobileSearch 
-                    isSearchExpanded 
+                    isEnteringInput={isEnteringInput}
                     onSearch={this.onSearch} 
                   />
                 }
               </Fade>
-            </Col>
-            <Col s={12} className="author-col">
-              <small>{'Created by '}
-                <a 
-                href="https://jamesmart77.github.io" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                >
-                  James Martineau
-                </a>
-              </small>
             </Col>
             <Col s={3}>
                 {shouldDisplayNavBtn &&

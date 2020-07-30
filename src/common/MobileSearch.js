@@ -4,7 +4,7 @@ import { searchTypes } from '../helpers/constants';
 
 function MobileSearch (props) {
 
-    const { onSearch } = props;
+    const { onSearch, isEnteringInput } = props;
     const [text, setText] = useState('');
     const [type, setType] = useState(searchTypes.passages);
 
@@ -17,11 +17,17 @@ function MobileSearch (props) {
     return (
         <div className="mobile-search-container">
             <div className={type === searchTypes.passages ? "wrapper passages": "wrapper keyword"}>
-                <Row className="type-row">
-                    <Col s={10} m={8} className="type-col center-align" offset="s1 m2">
+                <Row className={isEnteringInput ? "type-row no-padding-bottom" : "type-row"}>
+                    <Col 
+                        className={isEnteringInput ? "type-col no-padding-bottom" : "type-col"} 
+                        s={10} 
+                        m={8} 
+                        offset="s1 m2"
+                    >
                         <Button
                             className={type === searchTypes.passages ? "type-btn passage-btn active" : "type-btn passage-btn"}
                             onClick={() => setType(searchTypes.passages)}
+                            onKeyPress={() => setType(searchTypes.passages)}
                         >
                             <Icon>bookmark_border</Icon>
                             {type === searchTypes.passages && "Passages"} 
@@ -29,6 +35,7 @@ function MobileSearch (props) {
                         <Button
                             className={type === searchTypes.keyword ? "type-btn keyword-btn active" : "type-btn keyword-btn"}
                             onClick={() => setType(searchTypes.keyword)}
+                            onKeyPress={() => setType(searchTypes.keyword)}
                         >
                             <Icon>all_inclusive</Icon>
                             {type === searchTypes.keyword && "Keyword"}
@@ -38,6 +45,7 @@ function MobileSearch (props) {
                             <Row>
                                 <Col s={10} offset="s1">
                                     <TextInput 
+                                        id="search"
                                         s={12}
                                         value={text}
                                         placeholder={type === searchTypes.keyword ? "Repent" : "John 3:1-10"}

@@ -23,6 +23,11 @@
         background-color: $white;
         border-radius: 0.25rem;
         padding: 2rem 0;
+        text-align: center;
+    }
+
+    .type-col.no-padding-bottom, .type-row.no-padding-bottom {
+        padding-bottom: 0;
     }
 
     .type-btn, .search-btn {
