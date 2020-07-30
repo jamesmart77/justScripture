@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Preloader, Icon } from 'react-materialize';
+import { Row, Col, Icon } from 'react-materialize';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
@@ -12,21 +12,22 @@ import KeywordResult from '../common/KeywordResult';
 
 class MobileView extends Component {
   state = {
-    isSearchExpanded: true,
-    isLoading: false,
+    isSearchExpanded: false,
     isInitialState: true,
     keywordSearchResults: keywordSearchResultsInitial,
     passageSearchResults: passageSearchResultsInitial,
   }
 
-  // componentDidMount(){
-  //   const { location } = this.props;
-  //   const data = getLocationQuery(location);
+  componentDidMount(){
+    const { location } = this.props;
+    const data = getLocationQuery(location);
     
-  //   if (data) {
-  //     this.onSearch(data.query, data.type);
-  //   }
-  // }
+    if (data) {
+      this.onSearch(data.query, data.type);
+    } else {
+      this.setState({isSearchExpanded: true});
+    }
+  }
 
   toggleSearch = () => {
     const { isSearchExpanded } = this.state;
@@ -53,14 +54,13 @@ class MobileView extends Component {
           keywordSearchResults: keywordSearchResultsInitial,
         });
       }
+      history.push(`/bibleApp/${type}?q=${cleanedValue}`);
+  
+      this.setState({isInitialState: false});
     } catch(error) {
       console.error("ERROR: ", error);
       toast.error("Search failed. Please simplify your search and try again.");
     }
-
-    history.push(`/bibleApp/${type}?q=${cleanedValue}`);
-
-    this.setState({isInitialState: false});
   }
 
   getPrevChapter = () => {
@@ -81,7 +81,6 @@ class MobileView extends Component {
   render() {
     const { 
       isSearchExpanded, 
-      isLoading,
       passageSearchResults,
       keywordSearchResults,
       isInitialState,
@@ -89,18 +88,16 @@ class MobileView extends Component {
 
     const prevChapRef = this.getPrevChapter();
     const nextChapRef = this.getNextChapter();
+    const shouldDisplayNavBtn = !isSearchExpanded && passageSearchResults !== passageSearchResultsInitial;
 
     return (
       <div className="mobile-container">
-        <Title isMobileView />
+        <Title isMobileView toggleSearch={this.toggleSearch} />
         <Row className="content-row">
           <Col s={12} className="col-wrapper display-col">
-            {/* { isLoading && !isInitialState &&
-              <Preloader className="loading-spinner" />
-            } */}
 
             {/* TODO make more DRY */}
-            { isInitialState && !isLoading &&
+            { isInitialState && 
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
                   <p>Welcome to the Bible App. Search passages, verses, and keywords in the ESV Bible.</p>
@@ -109,53 +106,30 @@ class MobileView extends Component {
             }
 
             { !isInitialState && 
-              !isLoading && 
               passageSearchResults !== passageSearchResultsInitial &&
               passageSearchResults.passages &&
               passageSearchResults.passages.length > 0 &&
 
               <Row>
-                <Col s={1}>
-                  {/* <div 
-                    className="chapter-nav nav-left"
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => this.onSearch(prevChapRef, searchTypes.passages)}
-                    onKeyPress={() => this.onSearch(prevChapRef, searchTypes.passages)}
-                    title="Previous Chapter"
-                  >
-                    <Icon>chevron_left</Icon>
-                  </div> */}
-                </Col>
-                <Col s={10}>
+                <Col s={12}>
                   <div className="passage-text">{passageSearchResults.passages}</div>
-                </Col>
-                <Col s={1}>
-                  {/* <div 
-                    className="chapter-nav nav-right"
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => this.onSearch(nextChapRef, searchTypes.passages)}
-                    onKeyPress={() => this.onSearch(nextChapRef, searchTypes.passages)}
-                    title="Next Chapter"
-                  >
-                    <Icon>chevron_right</Icon>
-                  </div> */}
                 </Col>
 
                 <Col s={12}>
-                  <Copyright />
+                  <Copyright isMobileView />
                 </Col>
               </Row>
             } 
 
-            {/* { !isInitialState && 
-              !isLoading && 
+            { !isInitialState && 
               keywordSearchResults !== keywordSearchResultsInitial &&
               keywordSearchResults.results &&
               keywordSearchResults.results.length > 0 &&
 
                <Row>
+                 <Col s={12}>
+                   <div className="results-count">{keywordSearchResults.total_results} results found</div>
+                 </Col>
                  <Col s={12}>
                     {keywordSearchResults.results.map(result => (
                       <KeywordResult key={`key-${result.reference}`} search={this.onSearch} {...result} />
@@ -163,15 +137,15 @@ class MobileView extends Component {
                  </Col>
 
                  <Col s={12}>
-                   <Copyright />
+                   <Copyright isMobileView />
                  </Col>
                </Row>
-            }  */}
+            } 
           </Col>
         </Row>
         <Row className="navigator-row">
-            <Col s={12}>
-              <Fade bottom duration={500} when={isSearchExpanded}>
+            <Col s={12} className="mobile-search-wrapper">
+              <Fade bottom duration={750} when={isSearchExpanded}>
                 {isSearchExpanded &&
                   <MobileSearch 
                     isSearchExpanded 
@@ -180,20 +154,40 @@ class MobileView extends Component {
                 }
               </Fade>
             </Col>
-            <Col s={1}>
-                {!isSearchExpanded && !isInitialState &&
-                  <Icon>chevron_left</Icon>
+            <Col s={3}>
+                {shouldDisplayNavBtn &&
+                  <div
+                    className="chapter-nav"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => this.onSearch(prevChapRef, searchTypes.passages)}
+                    onKeyPress={() => this.onSearch(prevChapRef, searchTypes.passages)}
+                    title="Previous Chapter"
+                  >
+                    <Icon>chevron_left</Icon>
+                  </div>
                 }
             </Col>
-            <Col s={10} className="search-toggle-col">
+            <Col s={6} className="search-toggle-col">
                 <div className="search-toggle-btn" onClick={this.toggleSearch}>
                     <Icon>{isSearchExpanded ? 'keyboard_arrow_down' : 'search'}</Icon>
                 </div>
             </Col>
-            <Col s={1}>
-                {!isSearchExpanded && !isInitialState &&
-                  <Icon>chevron_right</Icon>
-                }
+            <Col s={3}>
+                {shouldDisplayNavBtn ? (
+                  <div
+                    className="chapter-nav nav-right"
+                    role="button"
+                    tabIndex={0}
+                    onClick={() => this.onSearch(nextChapRef, searchTypes.passages)}
+                    onKeyPress={() => this.onSearch(nextChapRef, searchTypes.passages)}
+                    title="Next Chapter"
+                  >
+                    <Icon>chevron_right</Icon>
+                  </div>
+                ) : (
+                  <></>
+                )}
             </Col>
         </Row>
       </div>

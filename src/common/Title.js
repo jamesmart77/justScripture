@@ -1,10 +1,15 @@
 import React from 'react';
-import { Icon, Button } from 'react-materialize';
 
 function Title (props) {
-  const { isMobileView } = props;
+  const { isMobileView, toggleSearch } = props;
 
-  const resetApp = () => window.location.href = "/bibleApp";
+  const resetApp = () => {
+    window.location.href = "/bibleApp";
+    
+    if (isMobileView) {
+      toggleSearch();
+    }
+  }
   
   return (
     <div

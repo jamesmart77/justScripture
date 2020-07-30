@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { TextInput, Button, Row, Col, Icon } from 'react-materialize';
 import { searchTypes } from '../helpers/constants';
-import { Fade } from 'react-reveal';
 
 function MobileSearch (props) {
 
-    const { onSearch, viewMode } = props;
+    const { onSearch } = props;
     const [text, setText] = useState('');
     const [type, setType] = useState(searchTypes.passages);
 

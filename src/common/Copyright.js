@@ -1,8 +1,10 @@
 import React from 'react';
 
-function Copyright () {
+function Copyright (props) {
+  const { isMobileView } = props;
+
   return (
-    <div className="copyright-container">
+    <div className={isMobileView ? "copyright-container mobile" : "copyright-container"}>
       <small>
         Scripture quotations are from the ESV® Bible (The Holy Bible, English Standard Version®), 
         copyright &copy; 2001 by Crossway, a publishing ministry of Good News Publishers. 

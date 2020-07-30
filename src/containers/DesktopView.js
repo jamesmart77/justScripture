@@ -52,14 +52,14 @@ class DesktopView extends Component {
           keywordSearchResults: keywordSearchResultsInitial,
         });
       }
+
+      history.push(`/bibleApp/${type}?q=${cleanedValue}`);
+
+      this.setState({isLoading: false});
     } catch(error) {
       console.error("ERROR: ", error);
       toast.error("Search failed. Please simplify your search and try again.");
     }
-
-    history.push(`/bibleApp/${type}?q=${cleanedValue}`);
-
-    this.setState({isLoading: false});
   }
 
   getPrevChapter = () => {
