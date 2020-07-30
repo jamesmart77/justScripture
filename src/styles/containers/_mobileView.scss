@@ -141,6 +141,17 @@
         .nav-right {
             float: right;
         }
+
+        .author-col {
+            color: lightgrey;
+            margin-bottom: 0.5rem;
+            text-align: center;
+
+            a {
+                color: $primaryTeal;
+                font-weight: 400;
+            }
+        }
     }
 }
 

@@ -154,6 +154,17 @@ class MobileView extends Component {
                 }
               </Fade>
             </Col>
+            <Col s={12} className="author-col">
+              <small>{'Created by '}
+                <a 
+                href="https://jamesmart77.github.io" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                >
+                  James Martineau
+                </a>
+              </small>
+            </Col>
             <Col s={3}>
                 {shouldDisplayNavBtn &&
                   <div

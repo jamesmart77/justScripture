@@ -38,6 +38,12 @@
         .pre-search-msg {
             color: $grey4;
             text-align: center;
+
+            img {
+                margin-top: 3rem;
+                opacity: 0.75;
+                width: 40%;
+            }
         }
 
         .chapter-nav {

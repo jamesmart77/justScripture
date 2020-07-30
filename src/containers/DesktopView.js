@@ -9,6 +9,7 @@ import Title from '../common/Title';
 import Search from '../common/Search';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
+import ReadingTimeSvg from '../images/readingTime.svg';
 
 class DesktopView extends Component {
   state = {
@@ -132,7 +133,7 @@ class DesktopView extends Component {
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
                   <p>Welcome to the Bible App. Search passages, verses, and keywords in the ESV Bible.</p>
-                  <Icon>search</Icon>
+                  <img src={ReadingTimeSvg} alt="woman sitting under lamp reading book" />
                 </div>
               </Fade>
             }
