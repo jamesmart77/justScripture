@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon } from 'react-materialize';
+import { Row, Col, Icon, Preloader } from 'react-materialize';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 import { toast } from 'react-toastify';
@@ -15,6 +15,7 @@ class MobileView extends Component {
     isSearchExpanded: false,
     isInitialState: true,
     isEnteringInput: false,
+    isLoading: false,
     keywordSearchResults: keywordSearchResultsInitial,
     passageSearchResults: passageSearchResultsInitial,
   }
@@ -40,7 +41,11 @@ class MobileView extends Component {
     const { history } = this.props;
     const cleanedValue = text.trim().replace(/ /g, '+');
 
-    await this.setState({isSearchExpanded: false});
+    await this.setState({
+      isSearchExpanded: false,
+      isEnteringInput: false,
+      isLoading: true,
+    });
 
     try {
       if (type === searchTypes.keyword) {
@@ -63,6 +68,8 @@ class MobileView extends Component {
       console.error("ERROR: ", error);
       toast.error("Search failed. Please simplify your search and try again.");
     }
+
+    this.setState({isLoading: false});
   }
 
   getPrevChapter = () => {
@@ -84,7 +91,10 @@ class MobileView extends Component {
     
     const _this = this;
   
-    // wait for DOM to paint before running listener dependent code.
+    /* 
+    wait for DOM to paint before running listener dependent code.
+    need to modify CSS for devices < 700 px high for input visibility
+    */
     window.requestAnimationFrame(function() {
       const searchInput = document.getElementById('search');
 
@@ -92,10 +102,6 @@ class MobileView extends Component {
         searchInput.addEventListener('focus', () => {
             _this.setState({isEnteringInput: true});  
           });
-          
-          searchInput.addEventListener('blur', () => {
-            _this.setState({isEnteringInput: false});  
-        });
       }
     })
   }
@@ -108,6 +114,7 @@ class MobileView extends Component {
       keywordSearchResults,
       isInitialState,
       isEnteringInput,
+      isLoading,
     } = this.state;
 
     const prevChapRef = this.getPrevChapter();
@@ -120,8 +127,14 @@ class MobileView extends Component {
         <Row className="content-row">
           <Col s={12} className="col-wrapper display-col">
 
+            { isLoading && 
+              <Col s={12} className="loading-spinner-col">
+                <Preloader />
+              </Col>
+            }
+
             {/* TODO make more DRY */}
-            { isInitialState && 
+            { isInitialState && !isLoading &&
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
                   <p>Welcome to the Bible App. Search passages, verses, and keywords in the ESV Bible.</p>
@@ -130,6 +143,7 @@ class MobileView extends Component {
             }
 
             { !isInitialState && 
+              !isLoading &&
               passageSearchResults !== passageSearchResultsInitial &&
               passageSearchResults.passages &&
               passageSearchResults.passages.length > 0 &&
@@ -146,6 +160,7 @@ class MobileView extends Component {
             } 
 
             { !isInitialState && 
+              !isLoading &&
               keywordSearchResults !== keywordSearchResultsInitial &&
               keywordSearchResults.results &&
               keywordSearchResults.results.length > 0 &&

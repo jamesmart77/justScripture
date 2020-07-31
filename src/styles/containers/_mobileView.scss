@@ -33,11 +33,9 @@
         .display-col {
             padding: 0 1.5rem !important;
 
-            .loading-spinner {
-                left: 50%;
-                margin-left: -2.5rem;
-                margin-top: 30%;
-                position: relative;
+            .loading-spinner-col {
+                margin-top: 3rem;
+                text-align: center;
             }
             
             .pre-search-msg {
