@@ -7,7 +7,7 @@ function KeywordResult (result) {
   const chapter = reference.split(":")[0];
 
   return (
-    <Fade right duration={500}>
+    <Fade bottom duration={500}>
       <div className="keyword-result-container">
         <h5 className="title">{reference}</h5>
         <div className="text">{content}</div>

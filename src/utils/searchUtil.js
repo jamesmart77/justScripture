@@ -10,7 +10,6 @@ const config = {
 };
 
 const getPassageResults = async (query) => {
-    
     const { data }  = await axios.get(`https://api.esv.org/v3/passage/html/?q=${query}`, config);
     
     if (data.passages.length === 0 ) throw new Error(`Invalid search. Query: ${query}`);
@@ -27,8 +26,8 @@ const getKeywordResults = async (query) => {
     return data;
 }
 
-async function delay(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+// async function delay(ms) {
+//     return new Promise(resolve => setTimeout(resolve, ms));
+// }
 
 export { getPassageResults, getKeywordResults};
