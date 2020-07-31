@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/bibleApp/static/css/main.26175446.chunk.css",
-    "main.js": "/bibleApp/static/js/main.18e7d1f2.chunk.js",
-    "main.js.map": "/bibleApp/static/js/main.18e7d1f2.chunk.js.map",
+    "main.js": "/bibleApp/static/js/main.b4cd999d.chunk.js",
+    "main.js.map": "/bibleApp/static/js/main.b4cd999d.chunk.js.map",
     "runtime-main.js": "/bibleApp/static/js/runtime-main.211d6da4.js",
     "runtime-main.js.map": "/bibleApp/static/js/runtime-main.211d6da4.js.map",
     "static/css/2.d34346ea.chunk.css": "/bibleApp/static/css/2.d34346ea.chunk.css",
-    "static/js/2.01216bdf.chunk.js": "/bibleApp/static/js/2.01216bdf.chunk.js",
-    "static/js/2.01216bdf.chunk.js.map": "/bibleApp/static/js/2.01216bdf.chunk.js.map",
+    "static/js/2.ccb5fef2.chunk.js": "/bibleApp/static/js/2.ccb5fef2.chunk.js",
+    "static/js/2.ccb5fef2.chunk.js.map": "/bibleApp/static/js/2.ccb5fef2.chunk.js.map",
     "index.html": "/bibleApp/index.html",
-    "precache-manifest.4140677d9c6103938bb5dde2e3ec3b22.js": "/bibleApp/precache-manifest.4140677d9c6103938bb5dde2e3ec3b22.js",
+    "precache-manifest.d3a3750adb8520d1b53919cb4065ba0d.js": "/bibleApp/precache-manifest.d3a3750adb8520d1b53919cb4065ba0d.js",
     "service-worker.js": "/bibleApp/service-worker.js",
     "static/css/2.d34346ea.chunk.css.map": "/bibleApp/static/css/2.d34346ea.chunk.css.map",
     "static/css/main.26175446.chunk.css.map": "/bibleApp/static/css/main.26175446.chunk.css.map",
-    "static/js/2.01216bdf.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.01216bdf.chunk.js.LICENSE.txt",
+    "static/js/2.ccb5fef2.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.ccb5fef2.chunk.js.LICENSE.txt",
     "static/media/readingTime.svg": "/bibleApp/static/media/readingTime.d7bb64d8.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.211d6da4.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.01216bdf.chunk.js",
+    "static/js/2.ccb5fef2.chunk.js",
     "static/css/main.26175446.chunk.css",
-    "static/js/main.18e7d1f2.chunk.js"
+    "static/js/main.b4cd999d.chunk.js"
   ]
 }

@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3245c6c4e1c739634a744845ec85a030",
+    "revision": "4fad7348fe5d92f3d8dfcc699e401b0a",
     "url": "/bibleApp/index.html"
   },
   {
-    "revision": "597843e2e1ebb73d1f96",
+    "revision": "3c17a4d313bda8da5a27",
     "url": "/bibleApp/static/css/2.d34346ea.chunk.css"
   },
   {
-    "revision": "09aba1224a8b9f6d3b92",
+    "revision": "53ed3f9b7900fd7355b6",
     "url": "/bibleApp/static/css/main.26175446.chunk.css"
   },
   {
-    "revision": "597843e2e1ebb73d1f96",
-    "url": "/bibleApp/static/js/2.01216bdf.chunk.js"
+    "revision": "3c17a4d313bda8da5a27",
+    "url": "/bibleApp/static/js/2.ccb5fef2.chunk.js"
   },
   {
     "revision": "8a0f87d4ff9462a28d37926fe68f0ebe",
-    "url": "/bibleApp/static/js/2.01216bdf.chunk.js.LICENSE.txt"
+    "url": "/bibleApp/static/js/2.ccb5fef2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "09aba1224a8b9f6d3b92",
-    "url": "/bibleApp/static/js/main.18e7d1f2.chunk.js"
+    "revision": "53ed3f9b7900fd7355b6",
+    "url": "/bibleApp/static/js/main.b4cd999d.chunk.js"
   },
   {
     "revision": "59dfc0fb1d97bc20cbb2",
