@@ -31,7 +31,6 @@ class DesktopView extends Component {
   }
 
   onSearch = async (text, type) => {
-    const { history } = this.props;
     const cleanedValue = text.trim().replace(/ /g, '+');
 
     this.setState({
@@ -53,8 +52,6 @@ class DesktopView extends Component {
           keywordSearchResults: keywordSearchResultsInitial,
         });
       }
-
-      history.push(`/bibleApp/${type}?q=${cleanedValue}`);
 
       this.setState({isLoading: false});
     } catch(error) {
@@ -186,6 +183,9 @@ class DesktopView extends Component {
               keywordSearchResults.results.length > 0 &&
 
                <Row>
+                <Col s={12}>
+                  <div className="results-count">{keywordSearchResults.total_results} results found</div>
+                </Col>
                  <Col s={12}>
                     {keywordSearchResults.results.map(result => (
                       <KeywordResult key={`key-${result.reference}`} search={this.onSearch} {...result} />

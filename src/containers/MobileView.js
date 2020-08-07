@@ -38,7 +38,6 @@ class MobileView extends Component {
   }
 
   onSearch = async (text, type) => {
-    const { history } = this.props;
     const cleanedValue = text.trim().replace(/ /g, '+');
 
     await this.setState({
@@ -61,7 +60,8 @@ class MobileView extends Component {
           keywordSearchResults: keywordSearchResultsInitial,
         });
       }
-      history.push(`/bibleApp/${type}?q=${cleanedValue}`);
+    
+      window.location.hash = `${type}?q=${cleanedValue}`;
   
       this.setState({isInitialState: false});
     } catch(error) {
@@ -221,9 +221,11 @@ class MobileView extends Component {
                 }
             </Col>
             <Col s={6} className="search-toggle-col">
-                <div className="search-toggle-btn" onClick={this.toggleSearch}>
-                    <Icon>{isSearchExpanded ? 'keyboard_arrow_down' : 'search'}</Icon>
-                </div>
+                {!isInitialState &&
+                  <div className="search-toggle-btn" onClick={this.toggleSearch}>
+                      <Icon>{isSearchExpanded ? 'keyboard_arrow_down' : 'search'}</Icon>
+                  </div>
+                }
             </Col>
             <Col s={3}>
                 {shouldDisplayNavBtn ? (

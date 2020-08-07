@@ -11,7 +11,7 @@ function MobileSearch (props) {
     const handleSearch = (e) => {
         e.preventDefault();
         onSearch(text, type);
-        setText('');
+        setText(''); 
     }
 
     return (
@@ -29,16 +29,20 @@ function MobileSearch (props) {
                             onClick={() => setType(searchTypes.passages)}
                             onKeyPress={() => setType(searchTypes.passages)}
                         >
-                            <Icon>bookmark_border</Icon>
-                            {type === searchTypes.passages && "Passages"} 
+                            {type === searchTypes.passages &&
+                                <Icon>bookmark_border</Icon>
+                            }
+                            Passages
                         </Button>
                         <Button
                             className={type === searchTypes.keyword ? "type-btn keyword-btn active" : "type-btn keyword-btn"}
                             onClick={() => setType(searchTypes.keyword)}
                             onKeyPress={() => setType(searchTypes.keyword)}
                         >
-                            <Icon>all_inclusive</Icon>
-                            {type === searchTypes.keyword && "Keyword"}
+                            {type === searchTypes.keyword &&
+                                <Icon>search</Icon>
+                            }
+                            Keyword
                         </Button>
                     
                         <form onSubmit={handleSearch}>

@@ -46,6 +46,13 @@
             }
         }
 
+        .results-count {
+            color: $grey3;
+            float: right;
+            font-size: 1.25rem;
+            padding: 0.5rem 1rem;
+        }
+
         .chapter-nav {
             border: 1px solid $grey4;
             border-radius: 2rem;

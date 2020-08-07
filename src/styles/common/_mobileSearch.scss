@@ -31,13 +31,14 @@
     }
 
     .type-btn, .search-btn {
+        border: 1px solid $grey4;
         background-color: transparent;
         border-radius: 0.5rem;
         box-shadow: none;
         color: $grey2;
         line-height: 0 !important;
-        margin: 0 1.25rem;
-        padding: 0.75rem 1rem;
+        padding: 0 1.25rem;
+        text-transform: none;
 
         i {
             margin-right: 0.5rem;
@@ -46,12 +47,18 @@
         }
     }
 
+    .passage-btn {
+        margin-right: 1.25rem;
+    }
+
     .passage-btn.active {
         background-color: $secondaryTeal;
+        border: none;
     }
 
     .keyword-btn.active {
         background-color: $salmon3;
+        border: none;
     }
 
     .search-btn {

@@ -16,9 +16,7 @@ class App extends Component {
         <div className="app-container">
           <main>
             <Switch>
-              <Route path='/bibleApp' render={props => {
-                return isDesktop ? <DesktopView {...props} /> : <MobileView {...props} />
-              }}/>
+              <Route path='/bibleApp' component={isDesktop ? DesktopView : MobileView} />
             </Switch>
           </main>
 

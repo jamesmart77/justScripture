@@ -1,19 +1,19 @@
 import { searchTypes } from '../helpers/constants';
 
 export default function (location) {
-    const { search, pathname } = location;
+    const { hash } = location;
     const { keyword, passages } = searchTypes;
 
-    const queryArr = search.split('q=');
+    const queryArr = hash.split('q=');
     
-    if (pathname === '/bibleApp' || queryArr.length === 1) return
+    if (hash === '' || queryArr.length === 1) return
     
     let response = {
         type: passages,
         query: queryArr[1],
     };
     
-    if (pathname.includes(keyword)) {
+    if (hash.includes(keyword)) {
         response.type = keyword;
     }
 
