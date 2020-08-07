@@ -53,6 +53,8 @@ class DesktopView extends Component {
         });
       }
 
+      window.location.hash = `${type}?q=${cleanedValue}`;
+      
       this.setState({isLoading: false});
     } catch(error) {
       console.error("ERROR: ", error);
