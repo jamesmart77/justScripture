@@ -8,8 +8,9 @@ function Search (props) {
     const [text, setText] = useState('');
 
     const handleSearch = (e) => {
+        const addToHistory = true;
         e.preventDefault();
-        onSearch(text, type);
+        onSearch(text, type, addToHistory);
         setText('');
     }
 
