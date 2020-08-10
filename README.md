@@ -1,7 +1,9 @@
+Use the [Bible App](https://jamesmart77.github.io/bibleApp) now!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Description
-This is a fun little app to help people search for passages, verses, and keywords in the Bible without all the ads and distractions of common search platforms. This app uses the [ESV API](https://api.esv.org/) for all searches.
+This is a fun little app to help people search for passages, verses, and keywords in the Bible without all the ads and distractions of common search platforms. This app uses the [ESV API](https://api.esv.org/) for all searches. To help optimize the experience, check out the differences between desktop (> 900px) and mobile (< 900px);
 
 
 ### WireFrame Mockups
