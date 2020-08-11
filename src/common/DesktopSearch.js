@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextInput, Button, Row, Col, Icon, Switch } from 'react-materialize';
 import { searchTypes } from '../helpers/constants';
+import ExactPhraseTip from './ExactPhraseTip';
 
 function Search (props) {
 
@@ -40,6 +41,12 @@ function Search (props) {
                             onLabel="Exact Phrase"
                             value={isExact ? 'Exact Phrase' : 'Loose Phrase'}
                         />
+                        <Button
+                            tooltip={ExactPhraseTip}
+                            className="info-btn"
+                        >
+                            <Icon>info_outline</Icon>
+                        </Button>
                     </Col>
                 }
                 <Row>
