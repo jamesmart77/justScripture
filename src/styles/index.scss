@@ -29,3 +29,13 @@ main {
         background-color: $salmon2 !important;
     }
 }
+
+.material-tooltip {
+    max-width: 25rem !important;
+}
+
+@media only screen and (min-height: 900px) {
+    .material-tooltip {
+        max-width: 15rem !important;
+    }
+}

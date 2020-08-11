@@ -6,10 +6,11 @@ import { toast } from 'react-toastify';
 import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
-import Search from '../common/Search';
+import Search from '../common/DesktopSearch';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
 import ReadingTimeSvg from '../images/readingTime.svg';
+import SearchHistory from '../common/SearchHistory';
 
 class DesktopView extends Component {
   state = {
@@ -19,6 +20,7 @@ class DesktopView extends Component {
     isInitialState: true,
     keywordSearchResults: keywordSearchResultsInitial,
     passageSearchResults: passageSearchResultsInitial,
+    previousSearches: [],
   }
 
   componentDidMount(){
@@ -30,7 +32,13 @@ class DesktopView extends Component {
     }
   }
 
-  onSearch = async (text, type) => {
+  handleSearchHistory = async (text, type) => {
+    const { previousSearches } = this.state;
+    await this.setState({ previousSearches: [...previousSearches, { text, type }]});
+    console.log("state: ", this.state);
+  }
+
+  onSearch = async (text, type, addToHistory) => {
     const cleanedValue = text.trim().replace(/ /g, '+');
 
     this.setState({
@@ -51,6 +59,8 @@ class DesktopView extends Component {
           passageSearchResults: data,
           keywordSearchResults: keywordSearchResultsInitial,
         });
+
+        addToHistory && this.handleSearchHistory(data.passage_meta[0].canonical, searchTypes.passages);
       }
 
       window.location.hash = `${type}?q=${cleanedValue}`;
@@ -85,6 +95,7 @@ class DesktopView extends Component {
       passageSearchResults,
       keywordSearchResults,
       isInitialState,
+      previousSearches,
     } = this.state;
 
     const prevChapRef = this.getPrevChapter();
@@ -107,7 +118,12 @@ class DesktopView extends Component {
                   })}
                   icon={isPassageExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
                 >
-                  <Search viewMode='desktop-view' type={searchTypes.passages} onSearch={this.onSearch}/>
+                  <Search 
+                    viewMode='desktop-view' 
+                    type={searchTypes.passages} 
+                    onSearch={this.onSearch}
+                    handleSearchHistory={this.handleSearchHistory}
+                  />
                 </CollapsibleItem>
                 <CollapsibleItem 
                   header="Keyword" 
@@ -118,9 +134,17 @@ class DesktopView extends Component {
                   })}
                   icon={isKeywordExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
                 >
-                  <Search viewMode='desktop-view' type={searchTypes.keyword} onSearch={this.onSearch}/>
+                  <Search 
+                    viewMode='desktop-view' 
+                    type={searchTypes.keyword} 
+                    onSearch={this.onSearch}
+                    handleSearchHistory={this.handleSearchHistory}
+                  />
                 </CollapsibleItem>
               </Collapsible>
+              <SearchHistory
+                previousSearches={previousSearches}
+              />
               </Fade>
           </Col>
           <Col xl={9} m={8} className="col-wrapper display-col">

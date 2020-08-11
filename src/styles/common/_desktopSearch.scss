@@ -1,0 +1,54 @@
+@import '../appColors';
+
+.search-container {
+    .switch-wrapper {
+        margin-bottom: 1rem;
+
+        .switch {
+            display: inline-block !important;
+
+            input[type=checkbox]:checked+.lever {
+                background-color: $secondaryTeal !important;
+
+                &:after {
+                    background-color: $primaryTeal !important;
+                }
+            }
+        }
+
+        .info-btn {
+            background-color: transparent;
+            bottom: 0.5rem;
+            box-shadow: none;
+            color: $primaryTeal;
+            float: right;
+            // margin-left: 1rem;
+            position: relative;
+            width: 3rem;
+        }
+    }
+
+    .btn-wrapper {
+        padding: 0 1.5rem;
+        text-align: right;
+
+        .search-btn {
+            color: $white;
+            width: 100%;
+            
+            .icon {
+                margin-right: 0.5rem;
+                position: relative;
+                top: 0.25rem;
+            }
+        }
+        
+        .desktop-view {
+            background-color: $salmon2;
+        }
+        .mobile-view {
+            background-color: $primaryTeal;
+            margin-top: 1rem;
+        }
+    }
+}

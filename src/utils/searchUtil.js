@@ -5,12 +5,13 @@ const config = {
     proxy: false,
     headers: {
         'content-type': 'application/json',
-        'Authorization': 'Token ',
+        'Authorization': 'Token 1db4878bd4ef4915253c027d47fcad03a11a739b',
     },
 };
 
 const getPassageResults = async (query) => {
-    const { data }  = await axios.get(`https://api.esv.org/v3/passage/html/?q=${query}`, config);
+    const additionalParams = '&include-short-copyright=false&include-first-verse-numbers=false&include-chapter-numbers=false'
+    const { data }  = await axios.get(`https://api.esv.org/v3/passage/html/?q=${query}${additionalParams}`, config);
     
     if (data.passages.length === 0 ) throw new Error(`Invalid search. Query: ${query}`);
     
@@ -31,3 +32,8 @@ const getKeywordResults = async (query) => {
 // }
 
 export { getPassageResults, getKeywordResults};
+
+/*
+ - add pagination for keyword search results and set
+ - add search results sort OT/NT --> ASC/DESC
+*/
