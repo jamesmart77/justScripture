@@ -76,14 +76,14 @@ class DesktopView extends Component {
     const { passageSearchResults } = this.state;
     const prevChapArr = passageSearchResults.passage_meta[0].prev_chapter;
 
-    return prevChapArr.join('-');
+    if (prevChapArr) return prevChapArr.join('-');
   }
 
   getNextChapter = () => {
     const { passageSearchResults } = this.state;
     const nextChapArr = passageSearchResults.passage_meta[0].next_chapter;
 
-    return nextChapArr.join('-');
+    if (nextChapArr) return nextChapArr.join('-');
   }
 
 
@@ -169,21 +169,24 @@ class DesktopView extends Component {
 
               <Row>
                 <Col s={1}>
-                  <div 
-                    className="chapter-nav nav-left"
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => this.onSearch(prevChapRef, searchTypes.passages)}
-                    onKeyPress={() => this.onSearch(prevChapRef, searchTypes.passages)}
-                    title="Previous Chapter"
-                  >
-                    <Icon>chevron_left</Icon>
-                  </div>
+                  {prevChapRef && (
+                    <div 
+                      className="chapter-nav nav-left"
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => this.onSearch(prevChapRef, searchTypes.passages)}
+                      onKeyPress={() => this.onSearch(prevChapRef, searchTypes.passages)}
+                      title="Previous Chapter"
+                    >
+                      <Icon>chevron_left</Icon>
+                    </div>
+                  )}
                 </Col>
                 <Col s={10}>
                   <div className="passage-text">{passageSearchResults.passages}</div>
                 </Col>
                 <Col s={1}>
+                {nextChapRef && (
                   <div 
                     className="chapter-nav nav-right"
                     role="button"
@@ -194,6 +197,7 @@ class DesktopView extends Component {
                   >
                     <Icon>chevron_right</Icon>
                   </div>
+                )}
                 </Col>
 
                 <Col s={12}>

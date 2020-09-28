@@ -76,14 +76,14 @@ class MobileView extends Component {
     const { passageSearchResults } = this.state;
     const prevChapArr = passageSearchResults.passage_meta[0].prev_chapter;
 
-    return prevChapArr.join('-');
+    if (prevChapArr) return prevChapArr.join('-');
   }
 
   getNextChapter = () => {
     const { passageSearchResults } = this.state;
     const nextChapArr = passageSearchResults.passage_meta[0].next_chapter;
 
-    return nextChapArr.join('-');
+    if (nextChapArr) return nextChapArr.join('-');
   }
 
   handleInputListener = () => {
@@ -207,7 +207,7 @@ class MobileView extends Component {
               </Fade>
             </Col>
             <Col s={3}>
-                {shouldDisplayNavBtn &&
+                {shouldDisplayNavBtn && prevChapRef && (
                   <div
                     className="chapter-nav"
                     role="button"
@@ -218,7 +218,7 @@ class MobileView extends Component {
                   >
                     <Icon>chevron_left</Icon>
                   </div>
-                }
+                )}
             </Col>
             <Col s={6} className="search-toggle-col">
                 {!isInitialState &&
@@ -228,7 +228,7 @@ class MobileView extends Component {
                 }
             </Col>
             <Col s={3}>
-                {shouldDisplayNavBtn ? (
+                {shouldDisplayNavBtn && nextChapRef ? (
                   <div
                     className="chapter-nav nav-right"
                     role="button"
