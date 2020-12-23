@@ -22,7 +22,6 @@
             box-shadow: none;
             color: $primaryTeal;
             float: right;
-            // margin-left: 1rem;
             position: relative;
             width: 3rem;
         }
@@ -50,5 +49,9 @@
             background-color: $primaryTeal;
             margin-top: 1rem;
         }
+    }
+
+    input[type=text]:not(.browser-default):focus:not([readonly]){
+        border-bottom: 1px solid $primaryTeal !important;
     }
 }

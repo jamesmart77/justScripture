@@ -28,18 +28,44 @@ class DesktopView extends Component {
     const data = getLocationQuery(location);
     
     if (data) {
-      this.onSearch(data.query, data.type);
+      this.onSearch(data.query, data.type, false);
     }
   }
 
-  handleSearchHistory = async (text, type) => {
+  handleSearchHistory = (title, type, query) => {
     const { previousSearches } = this.state;
-    await this.setState({ previousSearches: [...previousSearches, { text, type }]});
-    console.log("state: ", this.state);
+    const uniqueSearches = new Set([...previousSearches]);
+    uniqueSearches.add({ title, type, query });
+    console.log("uniqueSearches: ", uniqueSearches)
+    this.setState({ previousSearches: [...uniqueSearches] });
   }
 
-  onSearch = async (text, type, addToHistory) => {
-    const cleanedValue = text.trim().replace(/ /g, '+');
+  handleKeyWordSearch = async(query, addToHistory, text) => {
+    const data = await getKeywordResults(query);
+    await this.setState({
+      keywordSearchResults: data,
+      passageSearchResults: passageSearchResultsInitial,
+    });
+
+    if (addToHistory) {
+      text = text.charAt(0).toUpperCase() + text.slice(1)
+      this.handleSearchHistory(text, searchTypes.keyword, query);
+    }
+  }
+
+  handlePassageSearch = async(query, addToHistory) => {
+    const data = await getPassageResults(query);
+    await this.setState({
+      passageSearchResults: data,
+      keywordSearchResults: keywordSearchResultsInitial,
+    });
+
+    if (addToHistory) {
+      this.handleSearchHistory(data.passage_meta[0].canonical, searchTypes.passages, query);
+    }
+  }
+
+  onSearch = async (query, type, addToHistory, text) => {
 
     this.setState({
       isLoading: true,
@@ -48,22 +74,12 @@ class DesktopView extends Component {
 
     try {
       if (type === searchTypes.keyword) {
-        const data = await getKeywordResults(cleanedValue);
-        await this.setState({
-          keywordSearchResults: data,
-          passageSearchResults: passageSearchResultsInitial,
-        });
+        await this.handleKeyWordSearch(query, addToHistory, text);
       } else {
-        const data = await getPassageResults(cleanedValue);
-        await this.setState({
-          passageSearchResults: data,
-          keywordSearchResults: keywordSearchResultsInitial,
-        });
-
-        addToHistory && this.handleSearchHistory(data.passage_meta[0].canonical, searchTypes.passages);
+        await this.handlePassageSearch(query, addToHistory);
       }
 
-      window.location.hash = `${type}?q=${cleanedValue}`;
+      window.location.hash = `${type}?q=${query}`;
       
       this.setState({isLoading: false});
     } catch(error) {
@@ -144,6 +160,7 @@ class DesktopView extends Component {
               </Collapsible>
               <SearchHistory
                 previousSearches={previousSearches}
+                onSearch={this.onSearch}
               />
               </Fade>
           </Col>

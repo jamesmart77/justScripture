@@ -26,7 +26,8 @@ class App extends Component {
 
           <ToastContainer 
             className="error-toast-container"
-            autoClose={false} 
+            autoClose={5000} 
+            pauseOnHover
           /> 
         </div>
       </BrowserRouter>

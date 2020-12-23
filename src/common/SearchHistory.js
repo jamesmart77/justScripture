@@ -1,8 +1,10 @@
 import React from 'react';
 import { Slide } from 'react-reveal';
+import { Row, Icon } from 'react-materialize';
+import { searchTypes } from '../helpers/constants';
 
 export default function SearchHistory (props) {
-  const { previousSearches } = props
+  const { previousSearches, onSearch } = props
 
   return (
     <div className="search-history-container">
@@ -11,22 +13,22 @@ export default function SearchHistory (props) {
           <h5 className="header">Search History</h5>
 
           {previousSearches.map(search => (
-            <div className="search-item">
-              <h6>{search.text}</h6>
-              <div>{search.type}</div>
-            </div>
+            <Row 
+              key={search.query}
+              role="button"
+              tab={0}
+              className="search-item"
+              onClick={() => {onSearch(search.query, search.type)}}
+              onKeyPress={() => {onSearch(search.query, search.type)}}
+            >
+              <h6 className="truncate">{search.title}</h6>
+              {search.type === searchTypes.keyword ? (
+                <Icon className="keyword-icon">short_text</Icon>
+              ) : (
+                <Icon className="passage-icon">bookmark_border</Icon>
+              )}
+            </Row>
           ))}
-          {/* <div className="text">{content}</div>
-          <div 
-            role="button"
-            tabIndex={0}
-            className="read-chapter"
-            title={`Read ${chapter}`}
-            onClick={() => search(chapter, searchTypes.passages)}
-            onKeyPress={() => search(chapter, searchTypes.passages)}
-          >
-            Read Chapter
-          </div> */}
         </Slide>
       }
     </div>

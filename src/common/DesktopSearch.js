@@ -11,14 +11,15 @@ function Search (props) {
 
     const handleSearch = async (e) => {
         e.preventDefault();
-        const addToHistory = true;
         let updatedText = text;
         
         if (isExact) {
             updatedText = `"${text}"`;
-        }    
+        };
         
-        onSearch(updatedText, type, addToHistory);
+        const query = updatedText.trim().replace(/ /g, '+');
+        
+        onSearch(query, type, true, text);
         setText('');
     }
 
@@ -28,7 +29,7 @@ function Search (props) {
                 <TextInput 
                     s={12}
                     value={text}
-                    placeholder={type === searchTypes.keyword ? "Repent" : "John 3:1-10"}
+                    placeholder={type === searchTypes.keyword ? "Repent" : "Jn 3:1-10"}
                     onChange={(e) => setText(e.target.value)}
                 />
 
