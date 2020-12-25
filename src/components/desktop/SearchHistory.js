@@ -1,7 +1,7 @@
 import React from 'react';
 import { Slide } from 'react-reveal';
 import { Row, Icon } from 'react-materialize';
-import { searchTypes } from '../helpers/constants';
+import { searchTypes } from '../../helpers/constants';
 
 export default function SearchHistory (props) {
   const { previousSearches, onSearch } = props

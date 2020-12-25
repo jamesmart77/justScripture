@@ -1,9 +1,9 @@
-Use the [Bible App](https://jamesmart77.github.io/bibleApp) now!
+Use the [Just Scripture](https://jamesmart77.github.io/justScripture) now!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Description
-This is a fun little app to help people search for passages, verses, and keywords in the Bible without all the ads and distractions of common search platforms. This app uses the [ESV API](https://api.esv.org/) for all searches. To help optimize the experience, check out the differences between desktop (> 900px) and mobile (< 900px);
+This is a fun little app to help people search for passages, verses, and keywords in the Bible without all the ads and distractions of popular applications. This app uses the [ESV API](https://api.esv.org/) for all searches. To help optimize the experience, this application is highly responsive and has been optimized for desktop, tablet, and mobile. Check out the differences between desktop (> 900px) and mobile (< 900px);
 
 
 ### WireFrame Mockups
@@ -56,18 +56,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### `npm eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Feature Backlog
+ - Mobile Search History
+ - Mobile share button
+ - Search pagination
+ - OT / NT search results sort
+ - Dark mode
+ - Font size scaling
+ - Type ahead for books of the bible
+ - Mobile search prompt upon search error
+ - Replace 'react-reveal' with 'react-awesome-reveal'
+ - Enhance manifest.json
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).

@@ -4,7 +4,7 @@ function Title (props) {
   const { isMobileView, toggleSearch } = props;
 
   const resetApp = () => {
-    window.location.href = "/bibleApp";
+    window.location.href = "/justScripture";
     
     if (isMobileView) {
       toggleSearch();
@@ -22,7 +22,7 @@ function Title (props) {
           onKeyPress={resetApp} 
           className="text"
         >
-          Bible App
+          Just Scripture
         </h2>
     </div>
   );

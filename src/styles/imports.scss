@@ -1,9 +1,11 @@
 @import './common/footer';
-@import './common/desktopSearch';
 @import './common/mobileSearch';
-@import './common/searchHistory';
 @import './common/title';
 @import './common/copyright';
 @import './common/keywordResult';
+@import './components/desktop/search';
+@import './components/desktop/searchHistory';
+@import './components/mobile/navigationBar';
+@import './components/mobile/searchHistory';
 @import './containers/desktopView';
 @import './containers/mobileView';

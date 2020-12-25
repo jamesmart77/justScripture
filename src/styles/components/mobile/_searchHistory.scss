@@ -1,0 +1,48 @@
+@import '../../appColors';
+
+.no-display {
+    display: none;
+}
+
+.mobile-search-history-row {
+    color: $grey5;
+    max-height: 20rem;
+
+    .wrapper {
+        max-height: 20rem;
+        overflow: scroll;
+
+        .header {
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+
+        .search-item {
+            cursor: pointer;
+            padding: 0 0.75rem;
+
+            h6 {
+                display: inline-block;
+                margin: 0 !important;
+                max-width: 90%;
+            }
+
+            i {
+                bottom: 0.25rem;
+                float: right;
+                margin-left: 0.75rem;
+                margin-right: -0.5rem;
+                position: relative;
+            }
+
+            .passage-icon {
+                color: $primaryTeal;
+            }
+
+            .keyword-icon {
+                color: $salmon2;
+            }
+        }
+    }
+}

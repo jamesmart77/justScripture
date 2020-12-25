@@ -1,31 +1,25 @@
 import React, { Component } from 'react';
-import { Row, Col, Icon, Preloader } from 'react-materialize';
-import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
-import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
-import { toast } from 'react-toastify';
+import { Row, Col, Preloader } from 'react-materialize';
+import { keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
-import MobileSearch from '../common/MobileSearch';
+import NavigationBar from '../components/mobile/NavigationBar';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
 
 class MobileView extends Component {
   state = {
     isSearchExpanded: false,
-    isInitialState: true,
     isEnteringInput: false,
-    isLoading: false,
-    keywordSearchResults: keywordSearchResultsInitial,
-    passageSearchResults: passageSearchResultsInitial,
   }
 
   componentDidMount(){
-    const { location } = this.props;
+    const { location, onSearch } = this.props;
     const data = getLocationQuery(location);
     
     if (data) {
-      this.onSearch(data.query, data.type);
+      onSearch(data.query, data.type);
     } else {
       this.setState({isSearchExpanded: true});
     }
@@ -37,53 +31,16 @@ class MobileView extends Component {
     this.setState({ isSearchExpanded: !isSearchExpanded });
   }
 
-  onSearch = async (text, type) => {
-    const cleanedValue = text.trim().replace(/ /g, '+');
-
+  handleSearch = async (text, type, addToHistory) => {
+    const { onSearch } = this.props;
+    
     await this.setState({
       isSearchExpanded: false,
       isEnteringInput: false,
-      isLoading: true,
     });
-
-    try {
-      if (type === searchTypes.keyword) {
-        const data = await getKeywordResults(cleanedValue);
-        await this.setState({
-          keywordSearchResults: data,
-          passageSearchResults: passageSearchResultsInitial,
-        });
-      } else {
-        const data = await getPassageResults(cleanedValue);
-        await this.setState({
-          passageSearchResults: data,
-          keywordSearchResults: keywordSearchResultsInitial,
-        });
-      }
     
-      window.location.hash = `${type}?q=${cleanedValue}`;
-  
-      this.setState({isInitialState: false});
-    } catch(error) {
-      console.error("ERROR: ", error);
-      toast.error("Search failed. Please simplify your search and try again.");
-    }
-
-    this.setState({isLoading: false});
-  }
-
-  getPrevChapter = () => {
-    const { passageSearchResults } = this.state;
-    const prevChapArr = passageSearchResults.passage_meta[0].prev_chapter;
-
-    if (prevChapArr) return prevChapArr.join('-');
-  }
-
-  getNextChapter = () => {
-    const { passageSearchResults } = this.state;
-    const nextChapArr = passageSearchResults.passage_meta[0].next_chapter;
-
-    if (nextChapArr) return nextChapArr.join('-');
+    const query = text.trim().replace(/ /g, '+');
+    onSearch(query, type, addToHistory, text);
   }
 
   handleInputListener = () => {
@@ -108,17 +65,22 @@ class MobileView extends Component {
 
 
   render() {
-    const { 
-      isSearchExpanded, 
+    const { isSearchExpanded, isEnteringInput } = this.state;
+
+    const {
+      getNextChapter,
+      getPrevChapter,
+      isLoading,
       passageSearchResults,
       keywordSearchResults,
       isInitialState,
-      isEnteringInput,
-      isLoading,
-    } = this.state;
+      previousSearches,
+      onSearch,
+    } = this.props;
 
-    const prevChapRef = this.getPrevChapter();
-    const nextChapRef = this.getNextChapter();
+    const prevChapRef = getPrevChapter();
+    const nextChapRef = getNextChapter();
+
     const shouldDisplayNavBtn = !isSearchExpanded && passageSearchResults !== passageSearchResultsInitial;
 
     return (
@@ -171,7 +133,7 @@ class MobileView extends Component {
                  </Col>
                  <Col s={12}>
                     {keywordSearchResults.results.map(result => (
-                      <KeywordResult key={`key-${result.reference}`} search={this.onSearch} {...result} />
+                      <KeywordResult key={`key-${result.reference}`} search={onSearch} {...result} />
                     ))}
                  </Col>
 
@@ -182,68 +144,17 @@ class MobileView extends Component {
             } 
           </Col>
         </Row>
-        <Row className="navigator-row">
-            { isSearchExpanded &&
-              <Col s={12} className="author-col">
-                <small>{'Created by '}
-                  <a 
-                  href="https://jamesmart77.github.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  >
-                    James Martineau
-                  </a>
-                </small>
-              </Col>
-            }
-            <Col s={12} className="mobile-search-wrapper">
-              <Fade bottom duration={750} when={isSearchExpanded}>
-                {isSearchExpanded &&
-                  <MobileSearch 
-                    isEnteringInput={isEnteringInput}
-                    onSearch={this.onSearch} 
-                  />
-                }
-              </Fade>
-            </Col>
-            <Col s={3}>
-                {shouldDisplayNavBtn && prevChapRef && (
-                  <div
-                    className="chapter-nav"
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => this.onSearch(prevChapRef, searchTypes.passages)}
-                    onKeyPress={() => this.onSearch(prevChapRef, searchTypes.passages)}
-                    title="Previous Chapter"
-                  >
-                    <Icon>chevron_left</Icon>
-                  </div>
-                )}
-            </Col>
-            <Col s={6} className="search-toggle-col">
-                {!isInitialState &&
-                  <div className="search-toggle-btn" onClick={this.toggleSearch}>
-                      <Icon>{isSearchExpanded ? 'keyboard_arrow_down' : 'search'}</Icon>
-                  </div>
-                }
-            </Col>
-            <Col s={3}>
-                {shouldDisplayNavBtn && nextChapRef ? (
-                  <div
-                    className="chapter-nav nav-right"
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => this.onSearch(nextChapRef, searchTypes.passages)}
-                    onKeyPress={() => this.onSearch(nextChapRef, searchTypes.passages)}
-                    title="Next Chapter"
-                  >
-                    <Icon>chevron_right</Icon>
-                  </div>
-                ) : (
-                  <></>
-                )}
-            </Col>
-        </Row>
+        <NavigationBar 
+          isSearchExpanded={isSearchExpanded}
+          shouldDisplayNavBtn={shouldDisplayNavBtn}
+          prevChapRef={prevChapRef}
+          nextChapRef={nextChapRef}
+          onSearch={this.handleSearch}
+          toggleSearch={this.toggleSearch}
+          isInitialState={isInitialState}
+          isEnteringInput={isEnteringInput}
+          previousSearches={previousSearches}
+        />
       </div>
     );
   }

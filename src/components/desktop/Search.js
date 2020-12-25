@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { TextInput, Button, Row, Col, Icon, Switch } from 'react-materialize';
-import { searchTypes } from '../helpers/constants';
-import ExactPhraseTip from './ExactPhraseTip';
+import { searchTypes } from '../../helpers/constants';
+import ExactPhraseTip from '../../common/ExactPhraseTip';
 
 function Search (props) {
 
-    const { type, onSearch, viewMode } = props;
+    const { type, onSearch } = props;
     const [text, setText] = useState('');
     const [isExact, setIsExact] = useState(false);
 
@@ -53,7 +53,7 @@ function Search (props) {
                 <Row>
                     <Col s={12} className="btn-wrapper">
                         <Button 
-                            className={`${viewMode} search-btn`}
+                            className="search-btn"
                             type="submit"
                             waves="light"
                         >

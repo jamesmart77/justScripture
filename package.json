@@ -2,7 +2,7 @@
   "name": "bible-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://jamesmart77.github.io/bibleApp",
+  "homepage": "https://jamesmart77.github.io/justScripture",
   "engines": {
     "npm": "6.4.0",
     "node": "12.14.1"

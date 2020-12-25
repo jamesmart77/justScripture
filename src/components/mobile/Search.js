@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { TextInput, Button, Row, Col, Icon } from 'react-materialize';
-import { searchTypes } from '../helpers/constants';
+import { searchTypes } from '../../helpers/constants';
 
-function MobileSearch (props) {
+function Search (props) {
 
     const { onSearch, isEnteringInput } = props;
     const [text, setText] = useState('');
@@ -10,7 +10,7 @@ function MobileSearch (props) {
 
     const handleSearch = (e) => {
         e.preventDefault();
-        onSearch(text, type);
+        onSearch(text, type, true);
         setText(''); 
     }
 
@@ -76,4 +76,4 @@ function MobileSearch (props) {
     );
 }
 
-export default MobileSearch;
+export default Search;
