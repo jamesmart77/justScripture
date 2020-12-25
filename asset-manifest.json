@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/bibleApp/static/css/main.05784d9c.chunk.css",
-    "main.js": "/bibleApp/static/js/main.c6f47026.chunk.js",
-    "main.js.map": "/bibleApp/static/js/main.c6f47026.chunk.js.map",
-    "runtime-main.js": "/bibleApp/static/js/runtime-main.211d6da4.js",
-    "runtime-main.js.map": "/bibleApp/static/js/runtime-main.211d6da4.js.map",
-    "static/css/2.d34346ea.chunk.css": "/bibleApp/static/css/2.d34346ea.chunk.css",
-    "static/js/2.20f32bc3.chunk.js": "/bibleApp/static/js/2.20f32bc3.chunk.js",
-    "static/js/2.20f32bc3.chunk.js.map": "/bibleApp/static/js/2.20f32bc3.chunk.js.map",
-    "index.html": "/bibleApp/index.html",
-    "precache-manifest.22c3c6033c662f6dcf700022f4819c0a.js": "/bibleApp/precache-manifest.22c3c6033c662f6dcf700022f4819c0a.js",
-    "service-worker.js": "/bibleApp/service-worker.js",
-    "static/css/2.d34346ea.chunk.css.map": "/bibleApp/static/css/2.d34346ea.chunk.css.map",
-    "static/css/main.05784d9c.chunk.css.map": "/bibleApp/static/css/main.05784d9c.chunk.css.map",
-    "static/js/2.20f32bc3.chunk.js.LICENSE.txt": "/bibleApp/static/js/2.20f32bc3.chunk.js.LICENSE.txt",
-    "static/media/readingTime.svg": "/bibleApp/static/media/readingTime.d7bb64d8.svg"
+    "main.css": "/justScripture/static/css/main.9cc0ecb6.chunk.css",
+    "main.js": "/justScripture/static/js/main.be890c49.chunk.js",
+    "main.js.map": "/justScripture/static/js/main.be890c49.chunk.js.map",
+    "runtime-main.js": "/justScripture/static/js/runtime-main.3b44c431.js",
+    "runtime-main.js.map": "/justScripture/static/js/runtime-main.3b44c431.js.map",
+    "static/css/2.d34346ea.chunk.css": "/justScripture/static/css/2.d34346ea.chunk.css",
+    "static/js/2.ab91808a.chunk.js": "/justScripture/static/js/2.ab91808a.chunk.js",
+    "static/js/2.ab91808a.chunk.js.map": "/justScripture/static/js/2.ab91808a.chunk.js.map",
+    "index.html": "/justScripture/index.html",
+    "precache-manifest.246b71ef0f4083eda3870b198ab0fd20.js": "/justScripture/precache-manifest.246b71ef0f4083eda3870b198ab0fd20.js",
+    "service-worker.js": "/justScripture/service-worker.js",
+    "static/css/2.d34346ea.chunk.css.map": "/justScripture/static/css/2.d34346ea.chunk.css.map",
+    "static/css/main.9cc0ecb6.chunk.css.map": "/justScripture/static/css/main.9cc0ecb6.chunk.css.map",
+    "static/js/2.ab91808a.chunk.js.LICENSE.txt": "/justScripture/static/js/2.ab91808a.chunk.js.LICENSE.txt",
+    "static/media/readingTime.svg": "/justScripture/static/media/readingTime.d7bb64d8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.211d6da4.js",
+    "static/js/runtime-main.3b44c431.js",
     "static/css/2.d34346ea.chunk.css",
-    "static/js/2.20f32bc3.chunk.js",
-    "static/css/main.05784d9c.chunk.css",
-    "static/js/main.c6f47026.chunk.js"
+    "static/js/2.ab91808a.chunk.js",
+    "static/css/main.9cc0ecb6.chunk.css",
+    "static/js/main.be890c49.chunk.js"
   ]
 }
