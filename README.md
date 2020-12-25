@@ -1,4 +1,4 @@
-Use the [Just Scripture](https://jamesmart77.github.io/justScripture) now!
+Use the [Just Scripture](https://jamesmart77.github.io/justScripture) app now!
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
