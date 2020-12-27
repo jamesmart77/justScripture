@@ -19,8 +19,9 @@ const getPassageResults = async (query) => {
     return data;
 }
 
-const getKeywordResults = async (query) => {
-    const { data } = await axios.get(`https://api.esv.org/v3/passage/search/?q=${query}&page-size=100`, config);
+const getKeywordResults = async (query, pageNumber) => {
+    const page = pageNumber || 1;
+    const { data } = await axios.get(`https://api.esv.org/v3/passage/search/?q=${query}&page-size=25&page=${page}`, config);
     
     if (data.results.length === 0 ) throw new Error(`Invalid search. Query: ${query}`);
     

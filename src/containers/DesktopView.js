@@ -9,6 +9,7 @@ import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
 import ReadingTimeSvg from '../images/readingTime.svg';
 import SearchHistory from '../components/desktop/SearchHistory';
+import ReactPaginate from 'react-paginate';
 
 class DesktopView extends Component {
   state = {
@@ -21,7 +22,7 @@ class DesktopView extends Component {
     const data = getLocationQuery(location);
     
     if (data) {
-      onSearch(data.query, data.type, false);
+      onSearch(data.query, data.type);
     }
   }
 
@@ -40,6 +41,7 @@ class DesktopView extends Component {
       keywordSearchResults,
       isInitialState,
       previousSearches,
+      keywordQuery,
     } = this.props;
 
     const prevChapRef = getPrevChapter();
@@ -165,6 +167,19 @@ class DesktopView extends Component {
                         {...result} 
                       />
                     ))}
+                    <ReactPaginate
+                      containerClassName="pagination"
+                      activeClassName="active"
+                      pageCount={keywordSearchResults.total_pages}
+                      pageRangeDisplayed={4}
+                      marginPagesDisplayed={2}
+                      initialPage={keywordSearchResults.page - 1}
+                      disableInitialCallback
+                      onPageChange={data => {
+                        const pageNumber = data.selected + 1;
+                        onSearch(keywordQuery, searchTypes.keyword, false, null, pageNumber)
+                      }}
+                    />
                  </Col>
 
                  <Col s={12}>

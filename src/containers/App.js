@@ -15,6 +15,7 @@ class App extends Component {
     keywordSearchResults: keywordSearchResultsInitial,
     passageSearchResults: passageSearchResultsInitial,
     previousSearches: [],
+    keywordQuery: '',
   }
 
   handleSearchHistory = (title, type, query) => {
@@ -27,11 +28,12 @@ class App extends Component {
     }
   }
 
-  handleKeyWordSearch = async(query, addToHistory, text) => {
-    const data = await getKeywordResults(query);
+  handleKeyWordSearch = async(query, addToHistory, text, pageNumber) => {
+    const data = await getKeywordResults(query, pageNumber);
     await this.setState({
       keywordSearchResults: data,
       passageSearchResults: passageSearchResultsInitial,
+      keywordQuery: query,
     });
 
     if (addToHistory) {
@@ -45,6 +47,7 @@ class App extends Component {
     await this.setState({
       passageSearchResults: data,
       keywordSearchResults: keywordSearchResultsInitial,
+      keywordQuery: '',
     });
 
     if (addToHistory) {
@@ -52,16 +55,18 @@ class App extends Component {
     }
   }
 
-  onSearch = async (query, type, addToHistory, text) => {
+  onSearch = async (query, type, addToHistory, text, pageNumber) => {
 
     this.setState({
       isLoading: true,
       isInitialState: false,
     });
 
+    console.log("pageNumber: ", pageNumber);
+
     try {
       if (type === searchTypes.keyword) {
-        await this.handleKeyWordSearch(query, addToHistory, text);
+        await this.handleKeyWordSearch(query, addToHistory, text, pageNumber);
       } else {
         await this.handlePassageSearch(query, addToHistory);
       }
@@ -99,6 +104,7 @@ class App extends Component {
       keywordSearchResults,
       passageSearchResults,
       previousSearches,
+      keywordQuery,
     } = this.state;
     
     return (
@@ -119,6 +125,7 @@ class App extends Component {
                       keywordSearchResults={keywordSearchResults}
                       passageSearchResults={passageSearchResults}
                       previousSearches={previousSearches}
+                      keywordQuery={keywordQuery}
                       {...props}
                     />
                   ) : (
@@ -131,6 +138,7 @@ class App extends Component {
                       keywordSearchResults={keywordSearchResults}
                       passageSearchResults={passageSearchResults}
                       previousSearches={previousSearches}
+                      keywordQuery={keywordQuery}
                       {...props}
                     />
                   )

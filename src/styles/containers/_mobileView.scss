@@ -79,6 +79,27 @@
                 float: right;
                 padding: 0.5rem 1rem;
             }
+
+            .pagination { 
+                text-align: center;
+    
+                a {
+                    cursor: pointer;
+                    margin: 0 0.25rem;
+                    
+                    &:active, &:focus {
+                        background-color: $salmon3;
+                        border-radius: 0.25rem;
+                    }
+                }
+    
+                .disabled, .active {
+                    a {
+                        cursor: not-allowed;
+                        border: none;
+                    }
+                }
+            }
         }
     }
 }
@@ -90,6 +111,18 @@
                 .pre-search-msg {
                     font-size: 0.9rem;
                     margin: 1rem 1.5rem 10rem;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-container {
+        .content-row {
+            .display-col {
+                .pagination { 
+                    margin-left: -1.5rem !important;
                 }
             }
         }

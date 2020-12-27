@@ -58,9 +58,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ### Feature Backlog
- - Mobile Search History
  - Mobile share button
- - Search pagination
  - OT / NT search results sort
  - Dark mode
  - Font size scaling
@@ -68,4 +66,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
  - Mobile search prompt upon search error
  - Replace 'react-reveal' with 'react-awesome-reveal'
  - Enhance manifest.json
-

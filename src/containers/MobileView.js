@@ -7,6 +7,8 @@ import Title from '../common/Title';
 import NavigationBar from '../components/mobile/NavigationBar';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
+import ReactPaginate from 'react-paginate';
+import { searchTypes } from '../helpers/constants';
 
 class MobileView extends Component {
   state = {
@@ -76,6 +78,7 @@ class MobileView extends Component {
       isInitialState,
       previousSearches,
       onSearch,
+      keywordQuery,
     } = this.props;
 
     const prevChapRef = getPrevChapter();
@@ -135,6 +138,21 @@ class MobileView extends Component {
                     {keywordSearchResults.results.map(result => (
                       <KeywordResult key={`key-${result.reference}`} search={onSearch} {...result} />
                     ))}
+                    <div>
+                      <ReactPaginate
+                        containerClassName="pagination"
+                        activeClassName="active"
+                        pageCount={keywordSearchResults.total_pages}
+                        pageRangeDisplayed={2}
+                        marginPagesDisplayed={2}
+                        initialPage={keywordSearchResults.page - 1}
+                        disableInitialCallback
+                        onPageChange={data => {
+                          const pageNumber = data.selected + 1;
+                          onSearch(keywordQuery, searchTypes.keyword, false, null, pageNumber)
+                        }}
+                      />
+                    </div>
                  </Col>
 
                  <Col s={12}>
