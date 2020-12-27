@@ -33,8 +33,3 @@ const getKeywordResults = async (query, pageNumber) => {
 // }
 
 export { getPassageResults, getKeywordResults};
-
-/*
- - add pagination for keyword search results and set
- - add search results sort OT/NT --> ASC/DESC
-*/

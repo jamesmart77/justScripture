@@ -58,7 +58,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ### Feature Backlog
- - Mobile share button
  - OT / NT search results sort
  - Dark mode
  - Font size scaling
