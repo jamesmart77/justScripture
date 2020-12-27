@@ -17,18 +17,25 @@ main {
     flex-direction: column;
 }
 
-.error-toast-container {
+.Toastify__toast--error {
     background-color: $salmon2 !important;
+    margin-bottom: 0 !important;
     
-    .Toastify__toast--error {
-        background-color: $salmon2 !important;
-        margin-bottom: 0 !important;
-    }
-
     .Toastify__toast-body {
         background-color: $salmon2 !important;
     }
 }
+    
+.Toastify__toast--success {
+    background-color: $secondaryTeal !important;
+    margin-bottom: 0 !important;
+    
+    .Toastify__toast-body {
+        background-color: $secondaryTeal !important;
+        color: $slate2;
+    }
+}
+
 
 .material-tooltip {
     max-width: 25rem !important;

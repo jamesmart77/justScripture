@@ -23,7 +23,7 @@ function SearchHistory (props) {
                       <Row 
                         key={`mobile-${search.query}`}
                         role="button"
-                        tab={0}
+                        tabIndex={0}
                         className="search-item"
                         onClick={() => {
                           setIsHistoryExpanded(false);

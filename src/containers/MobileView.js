@@ -35,14 +35,14 @@ class MobileView extends Component {
 
   handleSearch = async (text, type, addToHistory) => {
     const { onSearch } = this.props;
-    
-    await this.setState({
-      isSearchExpanded: false,
+
+    const query = text.trim().replace(/ /g, '+');
+    const wasSuccessful = await onSearch(query, type, addToHistory, text);
+
+    this.setState({
+      isSearchExpanded: !wasSuccessful,
       isEnteringInput: false,
     });
-    
-    const query = text.trim().replace(/ /g, '+');
-    onSearch(query, type, addToHistory, text);
   }
 
   handleInputListener = () => {

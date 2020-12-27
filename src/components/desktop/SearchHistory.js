@@ -16,7 +16,7 @@ export default function SearchHistory (props) {
             <Row 
               key={search.query}
               role="button"
-              tab={0}
+              tabIndex={0}
               className="search-item"
               onClick={() => {onSearch(search.query, search.type)}}
               onKeyPress={() => {onSearch(search.query, search.type)}}

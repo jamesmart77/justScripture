@@ -15,6 +15,14 @@
 .title-container.mobile {
     display: flex;
     justify-content: center;
+
+    .share-btn {
+        cursor: pointer;
+        display: inline-block;
+        position: absolute;
+        right: 1.5rem;
+        top: 1.75rem;
+    }
 }
 
 @media only screen and (max-width: 900px) {

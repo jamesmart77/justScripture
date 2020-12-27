@@ -56,13 +56,11 @@ class App extends Component {
   }
 
   onSearch = async (query, type, addToHistory, text, pageNumber) => {
-
+    let successfulSearch = true;
     this.setState({
       isLoading: true,
       isInitialState: false,
     });
-
-    console.log("pageNumber: ", pageNumber);
 
     try {
       if (type === searchTypes.keyword) {
@@ -76,9 +74,14 @@ class App extends Component {
       this.setState({isInitialState: false});
     } catch(error) {
       console.error("ERROR: ", error);
-      toast.error("Search failed. Please simplify your search and try again.");
+      toast.error("Search failed. Please simplify your search and try again.", {
+        autoClose:5000, 
+        pauseOnHover: true,
+      });
+      successfulSearch = false;
     }
     this.setState({isLoading: false});
+    return successfulSearch;
   }
 
   getPrevChapter = () => {
@@ -151,11 +154,7 @@ class App extends Component {
             <Footer />
           }
 
-          <ToastContainer 
-            className="error-toast-container"
-            autoClose={5000} 
-            pauseOnHover
-          /> 
+          <ToastContainer /> 
         </div>
       </BrowserRouter>
     );
