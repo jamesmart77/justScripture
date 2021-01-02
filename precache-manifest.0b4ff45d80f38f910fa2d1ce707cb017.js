@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6dd814d1d6c1457ebcc6b57b09ecc718",
+    "revision": "bc522d218b8f015d69cb69ae78af3726",
     "url": "/justScripture/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/justScripture/static/css/2.d34346ea.chunk.css"
   },
   {
-    "revision": "ad924019a080cb83be96",
+    "revision": "aacdd2106ae943e3b912",
     "url": "/justScripture/static/css/main.40887b75.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/justScripture/static/js/2.d116132a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ad924019a080cb83be96",
-    "url": "/justScripture/static/js/main.3bf6e233.chunk.js"
+    "revision": "aacdd2106ae943e3b912",
+    "url": "/justScripture/static/js/main.f5a9af83.chunk.js"
   },
   {
     "revision": "5296d4addf30764448ae",

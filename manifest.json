@@ -9,27 +9,27 @@
       "type": "image/x-icon"
     },
     {
-      "src":"/favicon-32x32.png",
+      "src":"/justScripture/favicon-32x32.png",
       "sizes":"32x32",
       "type":"image/png"
     },
     {
-      "src":"/android-chrome-192x192.png",
+      "src":"/justScripture/android-chrome-192x192.png",
       "sizes":"192x192",
       "type":"image/png"
     },
     {
-        "src":"/android-chrome-512x512.png",
+        "src":"/justScripture/android-chrome-512x512.png",
         "sizes":"512x512",
         "type":"image/png"
     },
     {
-      "src":"/android-chrome-192x192.png",
+      "src":"/justScripture/android-chrome-192x192.png",
       "sizes":"192x192",
       "type":"image/png"
     }
   ],
-  "start_url": "http://justscripture.life",
+  "start_url": "./",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#c1d2d0",
