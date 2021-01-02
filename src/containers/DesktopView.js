@@ -98,7 +98,7 @@ class DesktopView extends Component {
             { isInitialState && !isLoading &&
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
-                  <p>Welcome to the Bible App. Search passages, verses, and keywords in the ESV Bible.</p>
+                  <p>Welcome to Just Scripture - a bible app. Search passages, verses, and keywords in the ESV Bible.</p>
                   <img src={ReadingTimeSvg} alt="woman sitting under lamp reading book" />
                 </div>
               </Fade>

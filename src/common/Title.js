@@ -21,7 +21,7 @@ function Title (props) {
     elem.select();
     document.execCommand("copy");
     toast.success("Copied to Clipboard", {
-      autoClose:3000, 
+      autoClose:2000, 
       hideProgressBar: true,
     });
   }
