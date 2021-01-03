@@ -1,9 +1,11 @@
 import React from 'react';
 import { Icon } from 'react-materialize';
 import { toast } from 'react-toastify';
+import Clipboard from 'react-clipboard.js';
 
 function Title (props) {
   const { isMobileView, toggleSearch } = props;
+  const shouldShowShare = window.location.hash.includes("#passages");
 
   const resetApp = () => {
     window.location.href = "/justScripture";
@@ -14,12 +16,6 @@ function Title (props) {
   }
 
   const copyToClipboard = () => {
-    const elem = document.createElement('input');
-
-    document.body.appendChild(elem);
-    elem.value = window.location.href;
-    elem.select();
-    document.execCommand("copy");
     toast.success("Copied to Clipboard", {
       autoClose:2000, 
       hideProgressBar: true,
@@ -39,17 +35,15 @@ function Title (props) {
         >
           Just Scripture
         </h2>
-        {isMobileView &&
-          <div 
-            role="button"
-            tabIndex={0}
+        {isMobileView && shouldShowShare &&
+          <Clipboard 
             className="share-btn"
-            onClick={copyToClipboard}
-            onKeyPress={copyToClipboard}
             title="Share"
+            data-clipboard-text={window.location.href}
+            onSuccess={copyToClipboard}
           >
             <Icon>share</Icon>
-          </div>
+          </Clipboard>
           }
     </div>
   );

@@ -17,11 +17,14 @@
     justify-content: center;
 
     .share-btn {
+        background: transparent;
+        border: none;
+        color: $grey3;
         cursor: pointer;
         display: inline-block;
         position: absolute;
         right: 1.5rem;
-        top: 1.75rem;
+        top: 7rem;
     }
 }
 
