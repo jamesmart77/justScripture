@@ -15,6 +15,11 @@ function Search (props) {
         setText(''); 
     }
 
+    const handleAutocomplete = (value) => {
+        setText(value);
+        document.getElementById("passage-auto-id").focus();
+    }
+
     return (
         <div className="mobile-search-container">
             <div className={type === searchTypes.passages ? "wrapper passages": "wrapper keyword"}>
@@ -59,7 +64,7 @@ function Search (props) {
                                         onChange={(e) => setText(e.target.value)}
                                         options={{
                                             data: bibleBooks,
-                                            onAutocomplete: (value) => setText(value), // autocomplete change
+                                            onAutocomplete: handleAutocomplete, // autocomplete change
                                         }}
                                     />
                                 ) : (
