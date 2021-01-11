@@ -4,12 +4,32 @@
     background-color: $slate2;
     color: $white;
     padding: 1rem;
+    width: 100%;
+    
+    .wrapper {
+        display: inline-flex;
+        padding-bottom: 1rem;
 
-    .text {
-        cursor: pointer;
-        font-size: 3.1rem !important;
-        margin: 0 !important;
+        .logo {
+            max-width: 3rem;
+        }
+
+        .text {
+            cursor: pointer;
+            font-size: 2rem !important;
+            margin: 0 !important;
+            padding-left: 1rem;
+            position: relative;
+            top: 1rem;
+        }
     }
+
+    .wrapper.mobile {
+        bottom: 1rem;
+        padding-bottom: 0;
+        position: relative;
+    }
+
 }
 
 .title-container.mobile {
@@ -24,7 +44,7 @@
         display: inline-block;
         position: absolute;
         right: 1.5rem;
-        top: 7rem;
+        top: 5.75rem;
     }
 }
 

@@ -1,6 +1,7 @@
 @import '../../appColors';
 
 .search-container {
+    
     .switch-wrapper {
         margin-bottom: 1rem;
 
@@ -25,6 +26,15 @@
             position: relative;
             width: 3rem;
         }
+    }
+
+    .dropdown-content {
+        // position: fixed;
+        z-index: 99999;
+    }
+
+    .dropdown-content li>span {
+        color: $primaryTeal !important;
     }
 
     .btn-wrapper {

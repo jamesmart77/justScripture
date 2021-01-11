@@ -10,7 +10,6 @@
     }
 
     .col-wrapper {
-        flex: 1 0 auto;
         padding: 0 !important;
     }
 
@@ -29,7 +28,6 @@
 
     .display-col {
         background-color: $white;
-        display: flex;
 
         .loading-spinner, .pre-search-msg {
             margin: auto;

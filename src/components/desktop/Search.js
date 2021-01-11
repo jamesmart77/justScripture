@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { TextInput, Button, Row, Col, Icon, Switch } from 'react-materialize';
+import { Autocomplete, TextInput, Button, Row, Col, Icon, Switch } from 'react-materialize';
 import { searchTypes } from '../../helpers/constants';
 import ExactPhraseTip from '../../common/ExactPhraseTip';
+import bibleBooks from '../../utils/bibleBooks.json';
 
 function Search (props) {
 
@@ -23,15 +24,35 @@ function Search (props) {
         setText('');
     }
 
+    const handleAutocomplete = (value) => {
+        setText(value);
+        document.getElementById("passage-auto-id").focus();
+    }
+
     return (
         <div className="search-container">
             <form onSubmit={handleSearch}>
-                <TextInput 
-                    s={12}
-                    value={text}
-                    placeholder={type === searchTypes.keyword ? "Repent" : "Jn 3:1-10"}
-                    onChange={(e) => setText(e.target.value)}
-                />
+                {type === searchTypes.passages ? (
+                    <Autocomplete
+                        id="passage-auto-id"
+                        className="passage-autocomplete"
+                        s={12}
+                        placeholder="Jn 3:1-10"
+                        value={text}
+                        onChange={(e) => setText(e.target.value)} // typing change
+                        options={{
+                            data: bibleBooks,
+                            onAutocomplete: handleAutocomplete, // autocomplete change
+                        }}
+                  />
+                ) : (
+                    <TextInput 
+                        s={12}
+                        value={text}
+                        placeholder="Repent"
+                        onChange={(e) => setText(e.target.value)}
+                    />
+                )}
 
                 { type === searchTypes.keyword &&
                     <Col s={12} className="switch-wrapper">

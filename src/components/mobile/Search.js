@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { TextInput, Button, Row, Col, Icon } from 'react-materialize';
+import { Autocomplete, TextInput, Button, Row, Col, Icon } from 'react-materialize';
 import { searchTypes } from '../../helpers/constants';
+import bibleBooks from '../../utils/bibleBooks.json';
 
 function Search (props) {
 
@@ -48,6 +49,20 @@ function Search (props) {
                         <form onSubmit={handleSearch}>
                             <Row>
                                 <Col s={10} offset="s1">
+                                {type === searchTypes.passages ? (
+                                    <Autocomplete
+                                        id="passage-auto-id"
+                                        s={12}
+                                        placeholder="Jn 3:1-10"
+                                        className="passage-autocomplete"
+                                        value={text}
+                                        onChange={(e) => setText(e.target.value)}
+                                        options={{
+                                            data: bibleBooks,
+                                            onAutocomplete: (value) => setText(value), // autocomplete change
+                                        }}
+                                    />
+                                ) : (
                                     <TextInput 
                                         id="search"
                                         s={12}
@@ -55,6 +70,7 @@ function Search (props) {
                                         placeholder={type === searchTypes.keyword ? "Repent" : "John 3:1-10"}
                                         onChange={(e) => setText(e.target.value)}
                                     />
+                                )}
                                 </Col>
                             </Row>
                             <Row>

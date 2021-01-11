@@ -9,6 +9,7 @@ import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
 import ReactPaginate from 'react-paginate';
 import { searchTypes } from '../helpers/constants';
+import Logo from '../images/logo.png';
 
 class MobileView extends Component {
   state = {
@@ -102,7 +103,8 @@ class MobileView extends Component {
             { isInitialState && !isLoading &&
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
-                  <p>Welcome to Just Scripture - a bible App. Search passages, verses, and keywords in the ESV Bible.</p>
+                  <img className="logo" src={Logo} alt="Just Scripture logo" />
+                  <p>Welcome to Just Scripture - a Bible app. Search passages, verses, and keywords in the ESV Bible.</p>
                 </div>
               </Fade>
             }

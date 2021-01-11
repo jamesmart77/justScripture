@@ -51,44 +51,44 @@ class DesktopView extends Component {
       <div className="desktop-container">
         <Row className="row-wrapper">
           <Col xl={3} l={4} className="col-wrapper search-col">
+            <Title />
+            <Collapsible>
+              <CollapsibleItem 
+                header="Passages" 
+                expanded={true} 
+                node="div"
+                onClick={() => this.setState({ 
+                  isKeywordExpanded: false,
+                  isPassageExpanded: !isPassageExpanded,
+                })}
+                icon={isPassageExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
+              >
+                <Search 
+                  type={searchTypes.passages} 
+                  onSearch={onSearch}
+                />
+              </CollapsibleItem>
+              <CollapsibleItem 
+                header="Keyword" 
+                node="div"
+                onClick={() => this.setState({ 
+                  isKeywordExpanded: !isKeywordExpanded,
+                  isPassageExpanded: false,
+                })}
+                icon={isKeywordExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
+              >
+                <Search 
+                  type={searchTypes.keyword} 
+                  onSearch={onSearch}
+                />
+              </CollapsibleItem>
+            </Collapsible>
             <Fade left>
-              <Title />
-              <Collapsible>
-                <CollapsibleItem 
-                  header="Passages" 
-                  expanded={true} 
-                  node="div"
-                  onClick={() => this.setState({ 
-                    isKeywordExpanded: false,
-                    isPassageExpanded: !isPassageExpanded,
-                  })}
-                  icon={isPassageExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
-                >
-                  <Search 
-                    type={searchTypes.passages} 
-                    onSearch={onSearch}
-                  />
-                </CollapsibleItem>
-                <CollapsibleItem 
-                  header="Keyword" 
-                  node="div"
-                  onClick={() => this.setState({ 
-                    isKeywordExpanded: !isKeywordExpanded,
-                    isPassageExpanded: false,
-                  })}
-                  icon={isKeywordExpanded ? <Icon>keyboard_arrow_down</Icon> : <Icon>keyboard_arrow_right</Icon>}
-                >
-                  <Search 
-                    type={searchTypes.keyword} 
-                    onSearch={onSearch}
-                  />
-                </CollapsibleItem>
-              </Collapsible>
               <SearchHistory
                 previousSearches={previousSearches}
                 onSearch={onSearch}
               />
-              </Fade>
+            </Fade>
           </Col>
           <Col xl={9} l={8} className="col-wrapper display-col">
             { isLoading && !isInitialState &&

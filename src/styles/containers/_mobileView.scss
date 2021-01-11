@@ -29,7 +29,6 @@
     }
 
     .content-row {
-
         .display-col {
             padding: 0 1.5rem !important;
 
@@ -42,6 +41,11 @@
                 color: $grey4;
                 margin: 5rem 1.5rem 10rem;
                 text-align: center;
+
+                .logo {
+                    max-width: 5rem;
+                    opacity: 0.75;
+                }
             }
 
             .passage-text {
