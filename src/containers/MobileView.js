@@ -164,7 +164,7 @@ class MobileView extends Component {
             } 
           </Col>
         </Row>
-        <NavigationBar 
+        <NavigationBar
           isSearchExpanded={isSearchExpanded}
           shouldDisplayNavBtn={shouldDisplayNavBtn}
           prevChapRef={prevChapRef}
@@ -174,6 +174,7 @@ class MobileView extends Component {
           isInitialState={isInitialState}
           isEnteringInput={isEnteringInput}
           previousSearches={previousSearches}
+          handleInputListener={this.handleInputListener}
         />
       </div>
     );

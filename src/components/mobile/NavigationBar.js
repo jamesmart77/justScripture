@@ -8,7 +8,7 @@ import SearchHistory from './SearchHistory';
 function NavigationBar (props) {
 
     const { 
-        onSearch, 
+        onSearch,
         toggleSearch,
         isEnteringInput, 
         isSearchExpanded,
@@ -17,6 +17,7 @@ function NavigationBar (props) {
         nextChapRef,
         isInitialState,
         previousSearches,
+        handleInputListener,
     } = props;
 
     const [isHistoryExpanded, setIsHistoryExpanded] = useState(false);
@@ -51,7 +52,8 @@ function NavigationBar (props) {
                 {isSearchExpanded &&
                   <Search 
                     isEnteringInput={isEnteringInput}
-                    onSearch={onSearch} 
+                    onSearch={onSearch}
+                    handleInputListener={handleInputListener}
                   />
                 }
               </Fade>

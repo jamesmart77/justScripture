@@ -5,7 +5,7 @@ import bibleBooks from '../../utils/bibleBooks.json';
 
 function Search (props) {
 
-    const { onSearch, isEnteringInput } = props;
+    const { onSearch, isEnteringInput, handleInputListener } = props;
     const [text, setText] = useState('');
     const [type, setType] = useState(searchTypes.passages);
 
@@ -17,6 +17,9 @@ function Search (props) {
 
     const handleAutocomplete = (value) => {
         setText(value);
+
+        // needed to bring input above keyboard on mobile devices
+        handleInputListener();
         document.getElementById("passage-auto-id").focus();
     }
 
