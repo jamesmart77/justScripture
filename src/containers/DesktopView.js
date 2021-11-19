@@ -15,6 +15,7 @@ class DesktopView extends Component {
   state = {
     isPassageExpanded: true,
     isKeywordExpanded: false,
+    expandAudio: false,
   }
 
   componentDidMount(){
@@ -24,6 +25,18 @@ class DesktopView extends Component {
     if (data) {
       onSearch(data.query, data.type);
     }
+
+    this.handleAudioListener();
+  }
+
+  handleAudioListener = () => {
+    document.addEventListener('click', this.shouldUpdateAudio, false);
+    document.addEventListener('keypress', this.shouldUpdateAudio, false);
+  };
+
+  shouldUpdateAudio = (e) => {
+    if (!e.target.matches('.audio-icon')) return;
+    this.setState({ expandAudio: true });
   }
 
   render() {
