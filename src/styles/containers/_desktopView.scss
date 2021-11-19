@@ -98,31 +98,6 @@
             .extra_text {
                 transition: 0.5s;
                 width: 100%;
-
-                .audio-icon {
-                    border: 1px solid $grey4;
-                    border-radius: 50%;
-                    color: $grey4;
-                    cursor: pointer;
-                    padding: 0.5rem;
-                    position: absolute;
-                    right: 3rem;
-                    top: 3rem;
-                }
-
-                .audio-player-wrapper {
-                    margin-top: 2rem;
-
-                    .passage-audio {
-                        border: none;
-                        width: 100%;
-                    }
-                }
-            }
-
-            .audio {
-                float: right;
-                font-size: 1rem;
             }
         }
 

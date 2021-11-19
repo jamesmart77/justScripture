@@ -21,7 +21,7 @@ function Audio ({ passageRef }) {
                     <div className="audio-player-wrapper">
                         <ReactAudioPlayer
                             className="passage-audio"
-                            src={`https://www.esv.org/audio-player/${passageRef}`}
+                            src={`https://audio.esv.org/david-cochran-heath/mq/${passageRef}.mp3`}
                             controls
                         />
                     </div>

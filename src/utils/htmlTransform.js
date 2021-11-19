@@ -1,5 +1,5 @@
 import React from 'react';
-import Audio from '../components/Audio';
+import Audio from '../common/Audio';
 
 const transformAudio = (node) => {
     const { type, data, name, prev } = node;
