@@ -10,7 +10,7 @@ const transformAudio = (node) => {
 
     if ( type === 'tag' && name === 'small') {
         const passageRef = prev.data.trim().replaceAll(' ', '+');
-        return <Audio passageRef={passageRef} />;
+        return <Audio key={`passage-${passageRef}`} passageRef={passageRef} />;
     }
 }
 
