@@ -29,13 +29,20 @@
     .display-col {
         background-color: $white;
 
-        .loading-spinner, .pre-search-msg {
-            margin: auto;
+        .loading {
+            &-wrapper {
+                height: 30rem;
+                margin-top: 12rem;
+                text-align: center;
+            }
         }
+        // .loading-spinner, .pre-search-msg {
+        //     margin: auto;
+        // }
 
         .pre-search-msg {
-            color: $grey4;
-            margin-top: 30%;
+            color: $grey3;
+            margin-top: calc(100% - 83%);
             text-align: center;
 
             img {

@@ -104,7 +104,7 @@ class MobileView extends Component {
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
                   <img className="logo" src={Logo} alt="Just Scripture logo" />
-                  <p>Welcome to Just Scripture - a Bible app. Search passages, verses, and keywords in the ESV Bible.</p>
+                  <p>Welcome to <span className="bold">Just Scripture</span>, a Bible app. Search passages, verses, and keywords in the ESV Bible.</p>
                 </div>
               </Fade>
             }

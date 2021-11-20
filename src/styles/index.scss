@@ -17,6 +17,10 @@ main {
     flex-direction: column;
 }
 
+.bold {
+    font-weight: bold !important;
+}
+
 .Toastify__toast--error {
     background-color: $salmon2 !important;
     margin-bottom: 0 !important;

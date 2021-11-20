@@ -63,7 +63,7 @@ class DesktopView extends Component {
     return (
       <div className="desktop-container">
         <Row className="row-wrapper">
-          <Col xl={3} l={4} className="col-wrapper search-col">
+          <Col xl={3} m={4} className="col-wrapper search-col">
             <Title />
             <Collapsible>
               <CollapsibleItem 
@@ -103,15 +103,17 @@ class DesktopView extends Component {
               />
             </Fade>
           </Col>
-          <Col xl={9} l={8} className="col-wrapper display-col">
+          <Col xl={9} m={8} className="col-wrapper display-col">
             { isLoading && !isInitialState &&
-              <Preloader className="loading-spinner" />
+              <div className="loading-wrapper">
+                <Preloader className="loading-spinner" />
+              </div>
             }
 
             { isInitialState && !isLoading &&
               <Fade top duration={2000}>
                 <div className="pre-search-msg">
-                  <p>Welcome to Just Scripture - a bible app. Search passages, verses, and keywords in the ESV Bible.</p>
+                  <p>Welcome to <span className="bold">Just Scripture</span>, a Bible app. Search passages, verses, and keywords in the ESV Bible.</p>
                   <img src={ReadingTimeSvg} alt="woman sitting under lamp reading book" />
                 </div>
               </Fade>
