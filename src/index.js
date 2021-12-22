@@ -4,6 +4,7 @@ import App from './containers/App';
 import * as serviceWorker from './serviceWorker';
 import './styles/index.scss';
 import 'react-toastify/dist/ReactToastify.css';
+import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 ReactDOM.render(
   <React.StrictMode>

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import ReactHtmlParser from 'react-html-parser';
-import { transformAudio } from './htmlTransform';
+import { transformHtml } from './htmlTransform';
 
 const config = {
     proxy: false,
@@ -10,13 +10,24 @@ const config = {
     },
 };
 
-const getPassageResults = async (query) => {
-    const additionalParams = '&include-short-copyright=false&include-first-verse-numbers=false&include-chapter-numbers=false'
+const passageParams = (isForCrossRef) => {
+    if (isForCrossRef) {
+        return `&include-short-copyright=false&include-first-verse-numbers=false&include-chapter-numbers=false
+        &include-footnotes=false&include-headings=false&include-subheadings=false&include-audio-link=false`
+    }
+
+    return '&include-short-copyright=false&include-first-verse-numbers=false&include-chapter-numbers=false&include-crossrefs=true'
+}
+
+const getPassageResults = async (query, isForCrossRef = false) => {
+    const additionalParams = passageParams(isForCrossRef)
     const { data }  = await axios.get(`https://api.esv.org/v3/passage/html/?q=${query}${additionalParams}`, config);
     
     if (data.passages.length === 0 ) throw new Error(`Invalid search. Query: ${query}`);
     
-    data.passages = ReactHtmlParser(data.passages[0], { transform: transformAudio });
+    data.passages = data.passages.map(passage => {
+        return ReactHtmlParser(passage, { transform: transformHtml });
+    }) 
     return data;
 }
 

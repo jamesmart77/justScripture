@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Row, Col, Collapsible, CollapsibleItem, Icon, Preloader } from 'react-materialize';
+import { Row, Col, Collapsible, CollapsibleItem, Icon } from 'react-materialize';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
+import Loader from '../common/Loader';
 import Search from '../components/desktop/Search';
 import Copyright from '../common/Copyright';
 import KeywordResult from '../common/KeywordResult';
@@ -105,9 +106,7 @@ class DesktopView extends Component {
           </Col>
           <Col xl={9} m={8} className="col-wrapper display-col">
             { isLoading && !isInitialState &&
-              <div className="loading-wrapper">
-                <Preloader className="loading-spinner" />
-              </div>
+              <Loader />
             }
 
             { isInitialState && !isLoading &&
