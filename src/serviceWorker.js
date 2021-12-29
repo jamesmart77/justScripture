@@ -10,6 +10,12 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+// Incrementing OFFLINE_VERSION will kick off the install event and force
+// previously cached resources to be updated from the network.
+const CACHE_NAME = 'offline';
+// Customize this with a different URL if needed.
+const OFFLINE_URL = 'offline.html';
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -63,7 +69,7 @@ function registerValidSW(swUrl, config) {
         if (installingWorker == null) {
           return;
         }
-        installingWorker.onstatechange = () => {
+        installingWorker.onstatechange = async () => {
           if (installingWorker.state === 'installed') {
             if (navigator.serviceWorker.controller) {
               // At this point, the updated precached content has been fetched,
@@ -89,6 +95,11 @@ function registerValidSW(swUrl, config) {
                 config.onSuccess(registration);
               }
             }
+
+            const cache = await caches.open(CACHE_NAME);
+            // Setting {cache: 'reload'} in the new request will ensure that the response
+            // isn't fulfilled from the HTTP cache; i.e., it will be from the network.
+            await cache.add(new Request(OFFLINE_URL, {cache: 'reload'}));
           }
         };
       };
