@@ -36,5 +36,6 @@
   "theme_color": "#000000",
   "background_color": "#c1d2d0",
   "author": "James Martineau",
-  "developer": "James Martineau"
+  "developer": "James Martineau",
+  "scope": "/justScripture"
 }
