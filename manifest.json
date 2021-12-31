@@ -1,5 +1,5 @@
 {
-  "short_name": "Just Scripture",
+  "short_name": "JS",
   "name": "Just Scripture",
   "description": "Minimize distractions and get into God's word",
   "icons": [
@@ -31,7 +31,7 @@
       "purpose": "maskable"
     }
   ],
-  "start_url": "./",
+  "start_url": "/justScripture",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#c1d2d0",
