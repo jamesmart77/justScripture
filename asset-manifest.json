@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/justScripture/static/css/main.09b2b50c.chunk.css",
-    "main.js": "/justScripture/static/js/main.a71f792d.chunk.js",
-    "main.js.map": "/justScripture/static/js/main.a71f792d.chunk.js.map",
+    "main.js": "/justScripture/static/js/main.e2226271.chunk.js",
+    "main.js.map": "/justScripture/static/js/main.e2226271.chunk.js.map",
     "runtime-main.js": "/justScripture/static/js/runtime-main.6f715e7d.js",
     "runtime-main.js.map": "/justScripture/static/js/runtime-main.6f715e7d.js.map",
     "static/css/2.26736c3c.chunk.css": "/justScripture/static/css/2.26736c3c.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.26736c3c.chunk.css",
     "static/js/2.5a533541.chunk.js",
     "static/css/main.09b2b50c.chunk.css",
-    "static/js/main.a71f792d.chunk.js"
+    "static/js/main.e2226271.chunk.js"
   ]
 }

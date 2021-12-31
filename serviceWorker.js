@@ -60,10 +60,10 @@ export function register(config) {
   }
 }
 
-function registerValidSW(swUrl, config) {
-  console.log("URL: ", swUrl);
+function registerValidSW(config) {
+  console.log("PUBLIC URL: /justScripture/serviceWorker.js");
   navigator.serviceWorker
-    .register(swUrl)
+    .register('/justScripture/serviceWorker.js', { scope: '/justScripture/'})
     .then(registration => {
       console.log("REGISTRATION COMPLETED!");
       registration.onupdatefound = () => {
