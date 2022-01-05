@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import withSizes from 'react-sizes'
 import MobileView from './MobileView';
 import DesktopView from './DesktopView';
+import PrivacyPolicy from '../common/PrivacyPolicy';
 import Footer from '../common/Footer';
 import { ToastContainer, toast } from 'react-toastify';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
@@ -116,6 +117,7 @@ class App extends Component {
           <main>
             <Switch>
               <Route 
+                exact
                 path='/justScripture' 
                 render={props =>
                   isDesktop ? (
@@ -147,6 +149,7 @@ class App extends Component {
                   )
                 }
               />
+              <Route exact path="/justScripture/privacyPolicy" component={PrivacyPolicy} />
             </Switch>
           </main>
 

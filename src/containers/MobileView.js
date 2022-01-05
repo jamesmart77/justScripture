@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Preloader } from 'react-materialize';
 import { keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
-import { Fade } from 'react-reveal';
+// import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
 import NavigationBar from '../components/mobile/NavigationBar';
@@ -101,12 +101,10 @@ class MobileView extends Component {
 
             {/* TODO make more DRY */}
             { isInitialState && !isLoading &&
-              <Fade top duration={2000}>
-                <div className="pre-search-msg">
-                  <img className="logo" src={Logo} alt="Just Scripture logo" />
-                  <p>Welcome to <span className="bold">Just Scripture</span>, a Bible app. Search passages, verses, and keywords in the ESV Bible.</p>
-                </div>
-              </Fade>
+              <div className="pre-search-msg">
+                <img className="logo" src={Logo} alt="Just Scripture logo" height="100%" width="100%" />
+                <p>Welcome to <span className="bold">Just Scripture</span>, a Bible app. Search passages, verses, and keywords in the ESV Bible.</p>
+              </div>
             }
 
             { !isInitialState && 

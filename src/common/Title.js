@@ -1,11 +1,10 @@
-import React from 'react';
 import { Icon } from 'react-materialize';
 import { toast } from 'react-toastify';
 import Clipboard from 'react-clipboard.js';
 import logo from '../images/logo.png';
 
 
-function Title (props) {
+export default function Title (props) {
   const { isMobileView, toggleSearch } = props;
   const shouldShowShare = window.location.hash.includes("#passages");
 
@@ -18,8 +17,8 @@ function Title (props) {
   }
 
   const copyToClipboard = () => {
-    toast.success("Copied to Clipboard", {
-      autoClose:2000, 
+    toast.success("Link copied. Share by pasting in messaging app.", {
+      autoClose:4000, 
       hideProgressBar: true,
     });
   }
@@ -39,9 +38,9 @@ function Title (props) {
         {!isMobileView &&
           <img className="logo" src={logo} alt='just scripture logo' />
         }
-        <h4 className="text">
+        <h1 className="text">
           Just Scripture
-        </h4>
+        </h1>
       </div>
       {isMobileView && shouldShowShare &&
         <Clipboard 
@@ -56,5 +55,3 @@ function Title (props) {
     </div>
   );
 }
-
-export default Title;

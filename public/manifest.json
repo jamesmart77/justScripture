@@ -1,5 +1,5 @@
 {
-  "short_name": "Just Scripture",
+  "short_name": "JS",
   "name": "Just Scripture",
   "description": "Minimize distractions and get into God's word",
   "icons": [
@@ -27,14 +27,14 @@
     {
       "src":"/justScripture/android-chrome-512x512.png",
       "sizes":"512x512",
-      "type":"image/png",
-      "purpose": "maskable"
+      "type":"image/png"
     }
   ],
-  "start_url": "./",
+  "start_url": "/justScripture/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#c1d2d0",
   "author": "James Martineau",
-  "developer": "James Martineau"
+  "developer": "James Martineau",
+  "scope": "/justScripture/"
 }
