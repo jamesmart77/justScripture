@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/justScripture/static/css/main.6bf8d5f9.chunk.css",
-    "main.js": "/justScripture/static/js/main.607c1363.chunk.js",
-    "main.js.map": "/justScripture/static/js/main.607c1363.chunk.js.map",
+    "main.css": "/justScripture/static/css/main.215c3623.chunk.css",
+    "main.js": "/justScripture/static/js/main.7b67c2da.chunk.js",
+    "main.js.map": "/justScripture/static/js/main.7b67c2da.chunk.js.map",
     "runtime-main.js": "/justScripture/static/js/runtime-main.6f715e7d.js",
     "runtime-main.js.map": "/justScripture/static/js/runtime-main.6f715e7d.js.map",
     "static/css/2.9bcfa669.chunk.css": "/justScripture/static/css/2.9bcfa669.chunk.css",
@@ -12,7 +12,7 @@
     "service-worker.js": "/justScripture/service-worker.js",
     "service-worker.js.map": "/justScripture/service-worker.js.map",
     "static/css/2.9bcfa669.chunk.css.map": "/justScripture/static/css/2.9bcfa669.chunk.css.map",
-    "static/css/main.6bf8d5f9.chunk.css.map": "/justScripture/static/css/main.6bf8d5f9.chunk.css.map",
+    "static/css/main.215c3623.chunk.css.map": "/justScripture/static/css/main.215c3623.chunk.css.map",
     "static/js/2.3dde7e3b.chunk.js.LICENSE.txt": "/justScripture/static/js/2.3dde7e3b.chunk.js.LICENSE.txt",
     "static/media/readingTime.f22f91a2.svg": "/justScripture/static/media/readingTime.f22f91a2.svg",
     "static/media/index.css": "/justScripture/static/media/roboto-latin-900italic.cb5ad999.woff2"
@@ -21,7 +21,7 @@
     "static/js/runtime-main.6f715e7d.js",
     "static/css/2.9bcfa669.chunk.css",
     "static/js/2.3dde7e3b.chunk.js",
-    "static/css/main.6bf8d5f9.chunk.css",
-    "static/js/main.607c1363.chunk.js"
+    "static/css/main.215c3623.chunk.css",
+    "static/js/main.7b67c2da.chunk.js"
   ]
 }
