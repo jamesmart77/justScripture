@@ -38,9 +38,9 @@ function NavigationBar (props) {
               <Col s={12} className="author-col">
                 <small>{'Created by '}
                   <a 
-                  href="https://jamesmart77.github.io" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                    href="https://jamesmart77.github.io" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
                   >
                     James Martineau
                   </a>

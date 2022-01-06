@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import ReactDOM from 'react-dom';
 import App from './containers/App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
@@ -9,7 +9,7 @@ import 'react-sliding-pane/dist/react-sliding-pane.css';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+      <App />
   </React.StrictMode>,
   document.getElementById('root')
 );

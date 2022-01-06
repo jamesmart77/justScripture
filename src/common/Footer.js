@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
-
-function Footer () {
+export default function Footer () {
   return (
     <footer className="footer-container">
       <div>
@@ -14,10 +12,8 @@ function Footer () {
         </a>
       </div>
       <small>
-        <Link className="privacy-link" to="/justScripture/privacyPolicy">Privacy Policy</Link>
+        <a className="privacy-link" href="/justScripture/privacyPolicy.html">Privacy Policy</a>
       </small>
     </footer>
   );
 }
-
-export default Footer;

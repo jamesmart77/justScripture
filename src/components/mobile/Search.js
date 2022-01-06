@@ -94,6 +94,13 @@ function Search (props) {
                             </Row>
                         </form>
                     </Col>
+                    <Col s={12} className="privacy-policy-link">
+                        <small>
+                            <a href="/justScripture/privacyPolicy.html">
+                            Privacy Policy
+                            </a>
+                        </small>
+                    </Col>
                 </Row>
             </div>
         </div>

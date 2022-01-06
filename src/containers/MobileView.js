@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Row, Col, Preloader } from 'react-materialize';
 import { keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
-// import { Fade } from 'react-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
 import NavigationBar from '../components/mobile/NavigationBar';

@@ -19,6 +19,14 @@
         padding: 2rem 0;
     }
 
+    .privacy-policy-link {
+        text-align: center;
+        
+        a {
+            color: $grey5 !important;
+        }
+    }
+
     .type-col {
         background-color: $white;
         border-radius: 0.25rem;
