@@ -64,6 +64,7 @@ function Search (props) {
                                         placeholder="Jn 3:1-10"
                                         className="passage-autocomplete"
                                         value={text}
+                                        autocomplete="off"
                                         onChange={(e) => setText(e.target.value)}
                                         options={{
                                             data: bibleBooks,
