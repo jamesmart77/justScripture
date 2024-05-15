@@ -1,12 +1,12 @@
 import axios from 'axios';
-import ReactHtmlParser from 'react-html-parser';
-import { transformHtml } from './htmlTransform';
+import parse from 'html-react-parser';
+import { replace } from './htmlTransform';
 
 const config = {
     proxy: false,
     headers: {
         'content-type': 'application/json',
-        'Authorization': 'Token 1db4878bd4ef4915253c027d47fcad03a11a739b',
+        'Authorization': 'Token ',
     },
 };
 
@@ -26,8 +26,15 @@ const getPassageResults = async (query, isForCrossRef = false) => {
     if (data.passages.length === 0 ) throw new Error(`Invalid search. Query: ${query}`);
     
     data.passages = data.passages.map(passage => {
-        return ReactHtmlParser(passage, { transform: transformHtml });
+        const res = parse(passage, { 
+            replace 
+        });
+
+        console.log({res});
+        return res
     }) 
+
+    console.log(data.passages);
     return data;
 }
 

@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom'; 
-import withSizes from 'react-sizes'
+import { useMediaQuery } from 'react-responsive'
 import MobileView from './MobileView';
 import DesktopView from './DesktopView';
 import Footer from '../common/Footer';
@@ -8,70 +8,59 @@ import { ToastContainer, toast } from 'react-toastify';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
 import { getPassageResults, getKeywordResults } from '../utils/searchUtil';
 
-class App extends Component {
-  state = {
-    isLoading: false,
-    isInitialState: true,
-    keywordSearchResults: keywordSearchResultsInitial,
-    passageSearchResults: passageSearchResultsInitial,
-    previousSearches: [],
-    keywordQuery: '',
-  }
+export default function App() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [isInitialState, setIsInitialState] = useState(true);
+  const [keywordSearchResults, setKeywordSearchResults] = useState(keywordSearchResultsInitial);
+  const [passageSearchResults, setPassageSearchResults] = useState(passageSearchResultsInitial);
+  const [previousSearches, setPreviousSearches] = useState([]);
+  const [keywordQuery, setKeywordQuery] = useState('');
 
-  handleSearchHistory = (title, type, query) => {
-    const { previousSearches } = this.state;
+  const handleSearchHistory = (title, type, query) => {
     const doesAlreadyExist = previousSearches.filter(item => item.query === query);
     
     if (doesAlreadyExist.length === 0) {
-      previousSearches.push({title, type, query});
-      this.setState({ previousSearches: [...previousSearches] });
+      setPreviousSearches(prevState => [...prevState, {title, type, query}]);
     }
   }
 
-  handleKeyWordSearch = async(query, addToHistory, text, pageNumber) => {
+  const handleKeyWordSearch = async(query, addToHistory, text, pageNumber) => {
     const data = await getKeywordResults(query, pageNumber);
-    await this.setState({
-      keywordSearchResults: data,
-      passageSearchResults: passageSearchResultsInitial,
-      keywordQuery: query,
-    });
+    setKeywordSearchResults(data);
+    setPassageSearchResults(passageSearchResultsInitial);
+    setKeywordQuery(query);
 
     if (addToHistory) {
       text = text.charAt(0).toUpperCase() + text.slice(1)
-      this.handleSearchHistory(text, searchTypes.keyword, query);
+      handleSearchHistory(text, searchTypes.keyword, query);
     }
   }
 
-  handlePassageSearch = async(query, addToHistory) => {
+  const handlePassageSearch = async(query, addToHistory) => {
     const data = await getPassageResults(query);
-    await this.setState({
-      passageSearchResults: data,
-      keywordSearchResults: keywordSearchResultsInitial,
-      keywordQuery: '',
-    });
+
+    setPassageSearchResults(data);
+    setKeywordSearchResults(keywordSearchResultsInitial);
+    setKeywordQuery('');
 
     if (addToHistory) {
-      this.handleSearchHistory(data.passage_meta[0].canonical, searchTypes.passages, query);
+      handleSearchHistory(data.passage_meta[0].canonical, searchTypes.passages, query);
     }
   }
 
-  onSearch = async (query, type, addToHistory, text, pageNumber) => {
+  const onSearch = async (query, type, addToHistory, text, pageNumber) => {
     let successfulSearch = true;
-    this.setState({
-      isLoading: true,
-      isInitialState: false,
-    });
+    setIsLoading(true);
+    setIsInitialState(false);
 
     try {
       if (type === searchTypes.keyword) {
-        await this.handleKeyWordSearch(query, addToHistory, text, pageNumber);
+        await handleKeyWordSearch(query, addToHistory, text, pageNumber);
       } else {
-        await this.handlePassageSearch(query, addToHistory);
+        await handlePassageSearch(query, addToHistory);
       }
 
       window.location.hash = `${type}?q=${query}`;
-
-      this.setState({isInitialState: false});
     } catch(error) {
       console.error("ERROR: ", error);
       toast.error("Search failed. Please simplify your search and try again.", {
@@ -80,35 +69,23 @@ class App extends Component {
       });
       successfulSearch = false;
     }
-    this.setState({isLoading: false});
+    setIsLoading(false);
     return successfulSearch;
   }
 
-  getPrevChapter = () => {
-    const { passageSearchResults } = this.state;
+  const getPrevChapter = () => {
     const prevChapArr = passageSearchResults.passage_meta[0].prev_chapter;
 
     if (prevChapArr) return prevChapArr.join('-');
   }
 
-  getNextChapter = () => {
-    const { passageSearchResults } = this.state;
+  const getNextChapter = () => {
     const nextChapArr = passageSearchResults.passage_meta[0].next_chapter;
 
     if (nextChapArr) return nextChapArr.join('-');
   }
 
-
-  render() {
-    const { isDesktop } = this.props;
-    const {
-      isLoading,
-      isInitialState,
-      keywordSearchResults,
-      passageSearchResults,
-      previousSearches,
-      keywordQuery,
-    } = this.state;
+    const isDesktop = useMediaQuery({ query: '(min-width: 900px)' });
     
     return (
       <BrowserRouter>
@@ -121,9 +98,9 @@ class App extends Component {
                 render={props =>
                   isDesktop ? (
                     <DesktopView 
-                      onSearch={this.onSearch}
-                      getPrevChapter={this.getPrevChapter}
-                      getNextChapter={this.getNextChapter}
+                      onSearch={onSearch}
+                      getPrevChapter={getPrevChapter}
+                      getNextChapter={getNextChapter}
                       isLoading={isLoading}
                       isInitialState={isInitialState}
                       keywordSearchResults={keywordSearchResults}
@@ -134,9 +111,9 @@ class App extends Component {
                     />
                   ) : (
                     <MobileView 
-                      onSearch={this.onSearch}
-                      getPrevChapter={this.getPrevChapter}
-                      getNextChapter={this.getNextChapter}
+                      onSearch={onSearch}
+                      getPrevChapter={getPrevChapter}
+                      getNextChapter={getNextChapter}
                       isLoading={isLoading}
                       isInitialState={isInitialState}
                       keywordSearchResults={keywordSearchResults}
@@ -161,10 +138,3 @@ class App extends Component {
       </BrowserRouter>
     );
   }
-}
-
-const mapSizesToProps = ({ width }) => ({
-  isDesktop: width >= 900,
-})
-
-export default withSizes(mapSizesToProps)(App);

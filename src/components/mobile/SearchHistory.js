@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Icon } from 'react-materialize';
 import { searchTypes } from '../../helpers/constants';
-import { Fade } from 'react-reveal';
+import { Fade } from 'react-awesome-reveal';
 
 function SearchHistory (props) {
 

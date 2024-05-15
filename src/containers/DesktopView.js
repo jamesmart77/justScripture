@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapsible, CollapsibleItem, Icon } from 'react-materialize';
 import { searchTypes, keywordSearchResultsInitial, passageSearchResultsInitial } from '../helpers/constants';
-import { Fade } from 'react-reveal';
+import { Fade } from 'react-awesome-reveal';
 import getLocationQuery from '../utils/getLocationQuery';
 import Title from '../common/Title';
 import Loader from '../common/Loader';

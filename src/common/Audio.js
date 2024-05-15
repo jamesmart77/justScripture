@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import { Icon } from 'react-materialize';
-import { Fade } from 'react-reveal';
+import { Fade } from 'react-awesome-reveal';
 import ReactAudioPlayer from 'react-audio-player';
 
-function Audio ({ passageRef }) {
+export default function Audio({ passageRef }) {
 
     const [isExpanded, setIsExpanded] = useState(false);
 
     return (
-        <div 
+        <div
             role="button"
             tabIndex={0}
             className="wrapper"
             onClick={() => setIsExpanded(!isExpanded)}
-            onKeyPress={() => setIsExpanded(!isExpanded)}
+            onKeyDown={() => setIsExpanded(!isExpanded)}
         >
             <Icon className="audio-icon">volume_down</Icon>
-            <Fade duration={500} top when={isExpanded} >
-                {isExpanded && (
+            {isExpanded && (
+                <Fade duration={500} direction="up">
                     <div className="audio-player-wrapper">
                         <ReactAudioPlayer
                             className="passage-audio"
@@ -25,10 +25,8 @@ function Audio ({ passageRef }) {
                             controls
                         />
                     </div>
-                )}
-            </Fade>
+                </Fade>
+            )}
         </div>
     );
 }
-
-export default Audio;

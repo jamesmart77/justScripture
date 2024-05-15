@@ -29,8 +29,9 @@ export default function CrossRef({ passageRefs }) {
         <span
           className="cross-ref-link"
           role="button"
+          tabIndex={0}
           onClick={() => setIsPaneOpen(!isPaneOpen)}
-          onKeyPress={() => setIsPaneOpen(!isPaneOpen)}
+          onKeyDown={() => setIsPaneOpen(!isPaneOpen)}
         >
           cf{' '}
         </span>

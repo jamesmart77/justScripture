@@ -1,5 +1,5 @@
 import React from 'react';
-import { Slide } from 'react-reveal';
+import { Slide } from 'react-awesome-reveal';
 import { Row, Icon } from 'react-materialize';
 import { searchTypes } from '../../helpers/constants';
 
