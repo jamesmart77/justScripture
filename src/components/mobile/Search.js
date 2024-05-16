@@ -3,8 +3,7 @@ import { Autocomplete, TextInput, Button, Row, Col, Icon } from 'react-materiali
 import { searchTypes } from '../../helpers/constants';
 import bibleBooks from '../../utils/bibleBooks.json';
 
-function Search (props) {
-
+export default function Search (props) {
     const { onSearch, isEnteringInput, handleInputListener } = props;
     const [text, setText] = useState('');
     const [type, setType] = useState(searchTypes.passages);
@@ -107,5 +106,3 @@ function Search (props) {
         </div>
     );
 }
-
-export default Search;

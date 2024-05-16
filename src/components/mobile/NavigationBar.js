@@ -48,7 +48,7 @@ export default function NavigationBar(props) {
       }
       <Col s={12} className="mobile-search-wrapper">
         {isSearchExpanded &&
-          <Fade direction="up" duration={750}>
+          <Fade direction="up" duration={500}>
             <Search
               isEnteringInput={isEnteringInput}
               onSearch={onSearch}

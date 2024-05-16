@@ -26,15 +26,11 @@ const getPassageResults = async (query, isForCrossRef = false) => {
     if (data.passages.length === 0 ) throw new Error(`Invalid search. Query: ${query}`);
     
     data.passages = data.passages.map(passage => {
-        const res = parse(passage, { 
+        return parse(passage, { 
             replace 
         });
-
-        console.log({res});
-        return res
     }) 
 
-    console.log(data.passages);
     return data;
 }
 

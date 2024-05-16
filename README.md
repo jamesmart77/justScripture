@@ -65,3 +65,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
  - Mobile search prompt upon search error
  - Replace 'react-reveal' with 'react-awesome-reveal'
  - Enhance manifest.json
+ 
